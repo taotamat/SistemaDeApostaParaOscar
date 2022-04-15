@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}{{filme.nome}}{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/filme_solo.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="Poster">
+
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        
+
+        <div class="Conteudo_Poster">
+            <div class="Imagem" >
+                <img src="{{filme.poster}}" alt="Poster de {{filme.nome}}">
+            </div>
+           
+            <div class="PosterDetalhes">
+                <p class="TituloFilme">{{filme.nome}}</p>
+                <div>
+                    <p>{{filme.ano}}</p>
+                    <p>{{filme.diretor}}</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- <div class="Linha_Amarela"></div> -->
+
+    </div>
+
+    <div class="Sobre">
+        
+        <div class="Sobre_titulo">
+            <h1>Sobre</h1>
+        </div>
+
+        <div class="Sobre_Conteudo">
+            <div class="Tecnicos">
+                <div>
+                    <h2>{{filme.duracao}}</h2>
+                    <p>min</p>
+                </div>
+                <h2>{{genero}}</h2>
+                <h2>Lingua</h2>
+            </div>
+
+            <div class="Sinopse">
+                <h2>Sinopse</h2>
+                <p>{{filme.sinopse}}</p>
+            </div>
+        </div>
+
+        <div class="Linha_Amarela"></div>
+    </div>
+
+    {% if filme.ondeAssistirLink != 'Indisponivel' %}
+        <div class="OndeAssistir">
+            <div class="ondeAssistir_titulo">
+                <h1>Onde Assistir</h1>
+            </div>
+
+            <div class="Assistir">
+                
+                    <a href="{{filme.ondeAssistirLink}}" target="_blank">
+                        <div>
+                            <img src="{{ filme.ondeAssistirImg }}">
+                            <p>{{filme.servico}}</p>
+                        </div>
+                    </a>
+
+            </div>
+
+            <div class="Linha_Amarela"></div>
+        </div>
+    {% endif %}
+
+
+    <div class="Avaliacao">
+
+        <div class="Avaliacao_Titulo">
+            <h1>Avaliações</h1>
+        </div>
+
+        <div class="Avaliacao_Conteudo">
+
+            <a href="{{filme.link_imdb}}" target="_blank">
+                <div class="Ava_imdb">
+                    <div class="Valor">
+                        <p class="Maior">{{filme.ava_imdb}}</p>
+                        <p class="Menor">/10</p>
+                    </div>
+                    
+                    <img src="https://img.icons8.com/color/100/000000/imdb.png"/>
+                    
+                </div>
+            </a>    
+
+            <a href="{{filme.link_letter}}" target="_blank">
+                <div class="Ava_letter">
+                    
+                    <div class="Valor">
+                        <p class="Maior">{{filme.ava_letter}}</p>
+                        <p class="Menor">/5</p>
+                    </div>
+                    <img src="https://a.ltrbxd.com/logos/letterboxd-mac-icon.png">
+                    
+                </div>
+            </a>
+            
+            <a href="{{filme.link_tmdb}}" target="_blank">
+                <div class="Ava_tmdb">
+                    <div class="Valor">
+                        <p class="Maior">{{filme.ava_tmdb}}%   </p>
+                        <p class="Menor">/100%</p>
+                    </div>
+                    <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg">
+                    
+                </div>
+            </a>
+            
+
+            <a href="{{filme.link_tomatoes}}" target="_blank">
+                <div class="Ava_tomatoes">
+                    <div class="Valor">
+                        {% if filme.tomatoes >= 0 %}
+                            <p class="Maior">{{filme.tomatoes}}%   </p>
+                            <p class="Menor">/100%</p>
+                        {% endif %}
+
+                        {% if filme.tomatoes < 0 %}
+                            <p class="SemCritica">Ainda não possui criticas</p>
+                        {% endif %}
+
+
+                    </div>
+                    <img src="{{estadoTomatoe}}">
+                </div>
+            </a>
+            
+
+            <!-- https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg -->
+        </div>
+
+        <div class="Linha_Amarela"></div>
+
+    </div>
+
+    <div class="Elenco">
+        
+        <div class="Eleco_Titulo">
+            <h1>Elenco</h1>
+        </div>
+
+
+
+        <div class="Elenco_Conteudo">
+
+           <div class="atores coluna1">
+                {% for i in elenco %}
+                    {% if forloop.counter <= 10 %}
+                        <p><!-- {{forloop.counter}} -  -->{{i.nomeAtor}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="atores coluna2">
+                {% for i in elenco %}
+                    {% if forloop.counter > 10 and forloop.counter <= 20 %}
+                        <p><!-- {{forloop.counter}} -  -->{{i.nomeAtor}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="atores coluna3">
+                {% for i in elenco %}
+                    {% if forloop.counter > 20 and forloop.counter <= 30 %}
+                        <p><!-- {{forloop.counter}} -->{{i.nomeAtor}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div> 
+
+        </div>
+        
+
+
+
+        <div class="Linha_Amarela"></div>
+    </div>
+
+
+    <div class="Nomeacoes">
+        <div class="Eleco_Titulo">
+            <h1>Nomeações</h1>
+        </div>
+
+        <div class="Nomeacoes_conteudo">
+
+            <div class="estatisticas">
+                
+                {% if bestPic == 'T' %}
+                    <div class="BestPic">
+                        <h3>Indicado a</h3>
+                        <h1>Melhor Filme</h1>
+                    </div>
+                {% endif %}
+
+
+                {% if posicao <= 10 %}
+                    <div class="Posicao">
+                        {% if posicao == 1 %}
+                            <h1 class="MaisIndicado">FILME MAIS INDICADO</h1>
+                        {% endif %}
+
+                        {% if posicao > 1 %}
+                            <div>
+                                <h1>{{posicao}}º</h1>
+                                <p>filme</p>
+                            </div>
+                            <h3>mais indicado</h3>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+
+                <div class="QntNomeacoes">
+                    <h3>Obteve o total de</h3>
+                    <div>
+                        <h1>{{qntNomeacoes}}</h1>
+
+                        {% if qntNomeacoes == 1 %}
+                            <p>Indicação</p>
+                        {% endif %}
+
+                        {% if qntNomeacoes > 1 %}
+                            <p>Indicações</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+
+            </div>
+            
+            <div class="LinhaEmPe"></div>
+
+            <div class="listagem">
+                {% for i in nomeacoes %}
+                    <div class="uma_nomeacao">
+                        <div class="nao_importante">
+                           <p>{{forloop.counter}}</p> 
+                        </div>
+
+                        <div style="width: 35%;">
+                            <h3>{{i}}</h3>
+                        </div>
+                        
+                        <div class="nao_importante">
+                            <p>
+                                <i>by</i>
+                            </p>
+                        </div>
+                       
+                        <div class="Importantes">
+                            <h3>{{i.responsavel}}</h3>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

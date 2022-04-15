@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Cadastro{% endblock %} 
+
+{% block 'head' %}<link rel="stylesheet" href="{% static 'css/cadastro.css' %}">{% endblock %}
+
+{% block 'conteudo' %}
+
+    {% if status == '0'%}
+        <div class="alerta certo">
+            <p>Cadastro realizado com sucesso!</p> 
+        </div>
+    {% endif %}
+
+    {% if status == '1'%}
+        <div class="alerta errado">
+            <p>*Nome e email não podem estar vazios!</p> 
+        </div>
+    {% endif %}
+
+    {% if status == '2'%}
+        <div class="alerta errado">
+            <p>*Sua Senha deve ter pelo menos 8 caracteres!</p> 
+        </div>
+    {% endif %}
+
+    {% if status == '3'%}
+        <div class="alerta errado">
+            <p>*O usuário já existe no sistema!!!</p> 
+        </div>
+    {% endif %}
+
+    {% if status == '4'%}
+        <div class="alerta errado">
+            <p>*Erro no servidor!</p> 
+        </div>
+    {% endif %}
+
+    <div class="titulo">
+        <h1>Cadastro</h1>
+    </div>
+
+
+    <form class="formulario" method="POST" action="{% url 'valida_cadastro' %}"> {% csrf_token %}
+    
+       	<input class="inputs" name="nome" type="text" placeholder="Nome" autocomplete="off">
+        <input class="inputs" name="email" type="text" placeholder="Email" autocomplete="off">
+        <input class="inputs" name="senha" type="password" placeholder="Senha" autocomplete="off">
+        <div class="centralizados">
+            <input class="btn btn-info btn-lg" type="submit" value="Enviar">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+            
+    </form>
+
+
+
+{% endblock %}

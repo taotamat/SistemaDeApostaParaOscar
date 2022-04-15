@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Perfil de {{nome}}{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <h1>Perfil de {{nome}}</h1>
+
+{% endblock %}

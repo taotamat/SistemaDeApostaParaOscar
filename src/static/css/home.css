@@ -1,0 +1,97 @@
+.Titulo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    z-index: -2;
+}
+
+.Banner {
+    width: 100%;
+    z-index: -3;
+}
+
+.Banner img, .conteudoTitulo {
+    height: 500px;
+    width: 100%;
+}
+
+.Banner img {
+    object-fit: cover;
+    position: relative;
+    justify-content: center;
+}
+
+.conteudoTitulo{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background: rgb(0,0,0);
+    background: linear-gradient(360deg, rgba(20,20,20,1) 5%, rgba(255,255,255,0) 100%);
+}
+
+.Titulo h1 {
+    margin-top: 400px;
+    font-size: 5em;
+    margin-right: 25px;
+    text-shadow: 3px 3px 0em rgba(20, 20, 20, .5);
+} 
+
+
+/* ------------------------------------------ */
+
+
+
+.BestPic, .conteudoBestPic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BestPic {
+    /* border: 1px solid #fff; */
+    margin-bottom: 5em;
+    width: 100%;
+    flex-direction: column;
+}
+
+.titulo{
+    font-size: 25px;
+}
+
+.conteudoBestPic{
+    width: 80%;
+}
+
+.cadaPoster {
+    height: 200px;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: linear 0.2s;
+    display: flex;
+    font-size: 0px;
+    justify-content: flex-start;
+}
+
+.cadaPoster:hover {
+    position: relative;
+    height: 250px;
+    font-size: 16px;
+}
+
+.cadaPoster img {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.cadaPoster p {
+    text-align: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 0;
+}

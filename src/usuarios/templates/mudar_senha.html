@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Alterar a senha{% endblock %} 
+
+{% block 'head' %}<link rel="stylesheet" href="{% static 'css/cadastro.css' %}">{% endblock %}
+
+{% block 'conteudo' %}
+
+    {% if status == '1'%}
+        <div class="alerta errado">
+            <p>*Todos os campos devem ser preenchidos!</p> 
+        </div>
+    {% endif %}
+
+    <div class="titulo">
+        <h1>Alterar a Senha</h1>
+    </div>
+
+    <form class="formulario" method="POST" action="{% url 'valida_mudanca_senha' %}"> {% csrf_token %}
+        <input class="inputs" name="email" type="text" placeholder="Email">
+        <input class="inputs" name="nova_senha" type="password" placeholder="Nova senha">
+        <div class="centralizados">
+            <input class="btn btn-info btn-lg" type="submit" value="Alterar">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </form>
+
+
+
+{% endblock %}

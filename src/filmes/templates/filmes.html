@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Filmes{% endblock %} 
+
+{% block 'head' %}<link rel="stylesheet" href="{% static 'css/filmes.css' %}">{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="Titulo">
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        <div class="conteudoTitulo">
+            <h1>Todos os Filmes Indicados</h1>
+        </div>
+        
+    </div>
+    
+
+
+    <div class="todos">
+        {% for i in nome %}
+
+            <a href="{% url 'filme' i.nome %}">
+                <div class="filme">
+                    <img src="{{i.poster}}">
+                    
+                    <p>{{i.nome}}</p>
+                    <!-- <h2>{{i.nome}}</h2> -->
+                </div>
+            </a>
+            
+        {% endfor %}
+    </div>  
+        
+    </div>
+
+{% endblock %}
+
+

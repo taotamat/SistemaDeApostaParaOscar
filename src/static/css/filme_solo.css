@@ -1,0 +1,561 @@
+.Poster {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    /* border-bottom: 1px solid #FCCD30; */
+    position: relative;
+    z-index: -2;
+}
+
+.Banner {
+    width: 100%;
+    z-index: -3;
+}
+
+.Banner img {
+    
+    object-fit: cover;
+    width: 100%;
+    height: 750px ;
+    position: relative;
+}
+
+.Conteudo_Poster {
+    width: 100%;
+    height: 750px;
+    position: absolute;
+    background: rgb(0,0,0);
+    background: linear-gradient(360deg, rgba(20,20,20,1) 2%, rgba(255,255,255,0) 100%);
+    z-index: -2;
+}
+
+.Linha_Amarela{
+    margin-top:0;
+    height: 0;
+    width: 80%;
+    border-bottom: 1px solid #FCCD30;
+}
+
+.Imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.Imagem img {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    height: 400px;
+    border: 3px solid #FCCD30;
+    /* box-shadow: 10px 10px 0px 0px rgba(252, 205, 48, 1); */
+}
+
+.PosterDetalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.TituloFilme {
+    font-size: 2.3em;
+    margin: 0;
+    text-align: center;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.PosterDetalhes div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.PosterDetalhes div p {
+    margin-right: 25px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+/* ------------------------------------------ */
+
+
+.Sobre, .OndeAssistir, .Avaliacao, .Elenco, .Nomeacoes {
+    margin-top: 5em;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Sobre .Linha_Amarela, .OndeAssistir .Linha_Amarela, .Avaliacao .Linha_Amarela, .Elenco .Linha_Amarela, .Nomeacoes .Linha_Amarela{
+    margin-top: 3em;
+}
+
+.Sobre_titulo{
+    /* border: 1px solid #FCCD30; */
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 2em;
+    padding-bottom: 1.5em;
+}
+
+.Sobre_titulo h1, .OndeAssistir h1, .Avaliacao h1, .Elenco h1, .Nomeacoes h1{
+    font-size: 3em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+
+.Sobre_Conteudo{
+    display: flex;
+    padding-right: 5em;
+    padding-left: 5em;
+}
+
+
+.Tecnicos h2, .Sinopse h2 {
+    font-size: 2.5em;
+    margin-block-start:0.2em;
+    margin-block-end: 0.2em;
+    /* margin-bottom: 2em; */
+}
+
+.Tecnicos {
+    border-right: 1px solid #FCCD30;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /* border: 1px solid #FCCD30; */
+}
+
+.Tecnicos div{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.Tecnicos div p {
+    margin-left: 5px;
+    margin-block-start: 1.3em;
+    margin-block-end: 0;
+    font-size: 20px;
+}
+
+.Sinopse {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Sinopse p{
+    text-align: justify;
+    font-size: 22px;
+    margin: 0 100px 0 50px;
+    /* text-indent: 3em; */
+}
+
+/* ----------------------------------------------------------------- */
+
+.Assistir {
+    /* border: 1px solid #FCCD30; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    font-size: 28px; 
+}
+
+.Assistir a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.Assistir a img {
+    border: 1px solid #FCCD30;
+    transition: .2s;
+}
+
+.Assistir a img:hover {
+    border: 5px solid #ffffff;
+}
+
+.Assistir a p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------------- */
+
+.Avaliacao_Conteudo{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.Ava_imdb, .Ava_letter, .Ava_tmdb, .Ava_tomatoes {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #FCCD30;
+    margin-right: 1em;
+    min-width: 200px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.Ava_imdb:hover, .Ava_letter:hover, .Ava_tmdb:hover, .Ava_tomatoes:hover {
+    background-color: rgba(252, 205, 48, 1);
+    color: #141414;
+    
+}
+
+
+.Valor{
+    /* color: #ffffff; */
+    border-bottom: 1px solid #FCCD30;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Valor .Maior {
+    text-decoration: none;
+    font-size: 48px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;   
+    margin-right: 5px;
+}
+
+
+
+.Valor .Menor {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-block-start: 2em;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.Avaliacao img {
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+}
+
+.Ava_tmdb img, .Ava_tomatoes img {
+    width: 100px;
+    height: 100px;
+    /* object-fit: cover; */
+}
+
+.SemCritica{
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+
+
+/* ----------------------------------------------------------------- */
+
+.Elenco_Conteudo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.atores {
+    margin-top: 1em;
+    width: 25%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.atores p {
+    margin: 0;
+    text-align: center;
+    /* margin-left: 4em; */
+}
+
+/* ----------------------------------------------------------------- */
+
+.Nomeacoes_conteudo{
+    /* border:1px solid #02af27; */
+    width: 80%;
+    display: flex;
+    /* min-height: 100px; */
+    margin-top: 3em;
+    margin-bottom: 3em;
+    justify-content: center;
+}
+
+.LinhaEmPe {
+    border: 1px solid #FCCD30;
+}
+
+.Nomeacoes_conteudo .LinhaEmPe{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.estatisticas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.estatisticas .Linha_Amarela{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.BestPic, .QntNomeacoes, .Posicao{
+    display: flex;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+    /* border: 1px solid orange; */
+    flex-direction: column;
+    border-bottom: 1px solid #FCCD30;
+    padding-bottom: 2.5em;
+}
+
+/* .BestPic {
+    padding-bottom: 3em;
+} */
+
+.BestPic h1, .QntNomeacoes h1, .Posicao h1{
+    color: #FCCD30;
+    font-size: 60px;
+}
+
+.BestPic h3, .QntNomeacoes h3, .Posicao h1 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-size: 32px;
+}
+
+.QntNomeacoes div {
+    display: flex;
+    justify-content: center;
+}
+
+.QntNomeacoes div h1 {
+    font-size: 90px;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.QntNomeacoes div p {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 25px;
+    margin-block-start: 2.3em;
+    margin-block-end: 1.2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.QntNomeacoes {
+    border-bottom: 0;
+}
+
+
+.Posicao h1 {
+    font-size: 90px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.Posicao .MaisIndicado {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.Posicao div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Posicao div h1 {
+    margin-right: 10px;
+}
+
+.Posicao div p {
+    font-size: 20px;
+    font-family: 'Varela Round', sans-serif;
+    margin-bottom: 0;
+    margin-block-start: 65px;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.Posicao h3 {
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------- */
+
+.listagem, .estatisticas{
+    /* border:1px solid#FCCD30; */
+    width: 50%;
+    
+}
+
+.listagem {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.uma_nomeacao {
+    display: flex;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #FCCD30;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.uma_nomeacao div{
+    display: flex;
+    /* border: 1px solid green; */
+    height: 100%;
+    align-items: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.Importantes {
+    width: 55%;
+    align-items: center;
+}
+
+.Importantes h3 {
+    margin-left: 1.3em;
+    color: #FCCD30;
+}   
+
+.nao_importante{
+    width: 5%;
+    justify-content: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.uma_nomeacao p {
+   /*  border: 1px solid red; */
+    margin-right: 15px;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.uma_nomeacao h3 {
+    /* border: 1px solid blue; */
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-right: 15px;
+    
+    width: 100%;   
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------- */
+
+
+@media(max-width: 1200px)  {
+    
+    .Sobre {
+        margin-top: 3em;
+    }
+
+    .Sobre_titulo{
+        display: none;
+    }
+    
+    .Tecnicos, .Sinopse{
+        width: 100%;
+        
+    }
+
+    .Tecnicos{
+        border-right: 0;
+        padding-bottom: 3em;
+    }
+
+    
+
+    .Sinopse p {
+        margin: 0 ;
+    }
+
+    .Sobre_Conteudo{
+        flex-direction: column;
+    }
+
+    .Tecnicos{
+        border-bottom: 1px solid #FCCD30;
+        margin-bottom: 3em;
+    }
+    
+}
+
+

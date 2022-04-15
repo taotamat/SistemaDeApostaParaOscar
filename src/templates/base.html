@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>{% block 'titulo' %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap" rel="stylesheet">
+    {% block 'head' %} {% endblock %}
+  </head>
+  <body>
+    
+    <header class="padrao cabecalho">
+
+        <nav class="menu">
+            <ul>
+                <a href="{% url 'home' %}"><li>Home</li></a>
+                <a href="{% url 'filmes' %}"><li>Filmes</li></a>
+                <!-- <a href=""><li>Maratona</li></a> -->
+                <a href=""><li>Apostar</li></a>
+                <!-- <a href=""><li>Estatísticas (Aqui a gente pode fazer a listagem dos vencedores dos anos anteriores)</li></a> -->
+                <a href=""><li>Resultados</li></a>
+                <!-- <a><li>Vencedores</li></a> -->
+            </ul> 
+        </nav>
+         
+        <!-- <div class="valor">
+            <p>Valor apostado: </p>
+            <p class="amarelo">R$ 100,00 </p>
+        </div> -->
+
+        <!-- <form class="buscar">
+          <input class="inputBuscar" name="busca" type="search" placeholder="Buscar" autocomplete="off">
+        </form> -->
+
+        
+
+
+        <button class="link_usuario" onclick="Mudarestado('opcoesUser')">
+          <div class="perfil" id="Perfil_header" style="background-color: #FCCD30;">
+            <div class="imagem">
+              <img src="https://cdn-icons-png.flaticon.com/512/456/456283.png" alt="user">
+            </div>
+          </div>
+        </button>
+
+
+        <div id="opcoesUser" style="display:none">
+          
+          <div class="aux_opcoes">
+            <div class="conteudo_opcoesUser">
+              <a href="{% url 'perfil' %}" class="opcoesUSER">
+                <h1>Perfil</h1> 
+              </a>
+    
+    
+              <a href="{% url 'mudarDados' %}"  class="opcoesUSER">
+                <h1>Alterar Dados</h1> 
+              </a>
+  
+              <a href="{% url 'sair' %}"  class="opcoesUSER">
+                <h1>Sair</h1> 
+              </a>
+
+
+            </div>
+          </div>
+
+          
+
+          
+        
+        </div>
+
+
+    </header>
+
+    <div class="padrao conteudo">
+        {% block 'conteudo' %}{% endblock %}
+    </div>
+    
+
+    <footer class="padrao rodape">
+      
+      <div class="primeiro">
+
+        <div class="padrao_rodape sobre">
+          <h2>SOBRE</h2>
+          <p>O principal objetivo do sistema é registrar e fazer o controle das apostas entre os usuários do sistema, além de cadastrar as categorias e divulgar a lista selecionada para a premiação. O sistema pode ser utilizado pelos seguintes usuários: apostadores e/ou apreciadores, patrocinadores e administrador.</p>
+        </div>
+
+        <div class="padrao_rodape autores">
+          <h2>Autores</h2>
+          <div>
+            <a>Bianca Sousa</a>
+            <a>Claudenilson Pereira</a>
+            <a>Lindaiely Rodrigues</a>
+            <a>Matheus Victor</a>
+            <a>Sheila Paloma</a>
+          </div>
+        </div>
+        
+        <div class="padrao_rodape social">
+          <h2>Redes Sociais</h2>
+          <div>
+            <a>Instagram</a>
+            <a>Twitter</a>
+            <a>Facebook</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="linha">
+        <div>
+          <p>Aposcar - 2022</p>   
+        </div>
+      </div>
+
+    </footer>
+    
+
+    <script src="/static/js/script.js"></script>
+
+  </body>
+</html>

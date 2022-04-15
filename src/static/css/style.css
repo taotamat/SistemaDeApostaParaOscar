@@ -1,0 +1,352 @@
+/* 
+    Cores:
+        #FCCD30; - Amarelo
+        #141414; - Preto
+
+*/
+
+
+body {
+    background-color: rgb(20, 20, 20);
+    /* border: 1px solid yellow; */
+    padding: 1em 3em;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+
+
+h1, h2 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+a{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+header {
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu ul li {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5em;
+    margin: 0.5em;
+    transition: 0.2;
+}
+
+.menu ul li:hover {
+    color:#FCCD30;
+}
+
+.buscar {
+    /* border: 1px solid red; */
+    width: 40%;
+    padding: 0;
+    margin: 0;
+    margin-right: 2.5em;
+}
+
+.buscar input {
+    width: 100%;
+    border: 1px solid #FCCD30;
+    font-size: 25px;
+    background-color: #141414;
+    font-family: 'Varela Round';
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+}
+
+
+.padrao {
+    border: 1px solid white;
+    width: 100%;
+    min-height: 100px;
+}
+
+
+/* .valor {
+    cursor: pointer;
+    border: 1px solid rgb(255, 251, 23);
+    height: 50px;
+    width:100%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    transition: 0.2s;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+} 
+
+.valor:hover {
+    border: 1px solid rgb(255, 255, 255);
+} 
+
+.amarelo {
+    color: #FCCD30;
+    margin-left: .4em;
+    font-size: 1.6em;
+} */
+
+.perfil {
+    cursor: pointer;
+    height: 100%;
+    margin-right: 3em;
+    border-radius: 50%;
+}
+
+.imagem {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    border: 1px solid #141414;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem img {
+    height: 30px;
+    width: 30px;
+}
+
+
+.link_usuario {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    z-index: 1;
+}
+
+#opcoesUser .linha_preta {
+    border-top: 1px solid #141414;
+    width: 80%;
+}
+
+.padrao {
+    z-index: -2;
+}
+
+header {
+    z-index: -2;
+}
+
+
+
+#opcoesUser{
+    position: absolute;
+    width: 15%;
+    right: 130px;
+    top: 60px;
+    background-color: #FCCD30;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 0.3s;
+    z-index: 0;
+    padding: 0px;
+    margin: 0px;
+}
+
+.aux_opcoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+#opcoesUser .conteudo_opcoesUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid #d9ff00; */
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    /* border: 2px solid #141414; */
+    box-shadow: 5px 5px 3px 0 rgba(20, 20, 20, 0.4);
+}
+
+.opcoesUSER {
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    transition: ease 0.4s;
+    /* border-top: 1px solid #141414; */
+    
+}
+
+.opcoesUSER:hover {
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    border: 1px solid #141414;
+
+}
+
+.opcoesUSER h1 {
+    color: #141414;
+    font-size: 2em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: normal;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/*
+#opcoesUser div a:hover {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+ */
+
+
+
+/* ----------------------------- CONTEUDO ----------------------------- */
+
+.conteudo {
+    min-height: 300px;
+    height: 100%;
+    /* padding-bottom: 10em; */
+}
+
+/* ----------------------------- RODAPÉ ----------------------------- */
+
+footer {
+    display: flex;
+    padding-bottom: 1em;
+    flex-wrap: wrap; 
+}
+
+footer h2 {
+    font-size: 2.5em;
+}
+
+.primeiro {
+    display: flex;
+}
+
+
+.padrao_rodape {
+    text-align: justify;
+    /* border: 1px solid white; */
+    width: 30%;
+    padding:1em;
+}
+
+.sobre {
+    margin-left: 5%;
+    padding-right: 40px;
+}
+
+.autores, .sobre h2{
+    text-align: center;
+}
+
+.autores div{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+}
+
+.autores div a, .social div a {
+    cursor: pointer;
+}
+
+.social{
+    margin-right: 5%;
+    text-align: center;
+}
+
+.social div {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+}
+
+.linha {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linha div {
+    width: 90%;
+    border-top: 1px solid rgb(46, 46, 46);
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+
+
+
+@media only screen and (min-device-width: 900px) {
+    
+}
+
+
+
