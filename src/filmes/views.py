@@ -35,7 +35,7 @@ CATEGORIAS = [
     ["Production Design ", "Melhor Design de Produção"],
     ["International Feature ", "Melhor Filme Internacional"],
     ["Documentary Feature ", "Melhor Documentário"],
-    ["Documentary Short ", "Melhor Cura Documentário"],
+    ["Documentary Short ", "Melhor Curta Documentário"],
     ["Animated Feature ", "Melhor Animação"],
     ["Animated Short ", "Melhor Curta Animado"],
     ["Live Action Short ", "Melhor Curta Metragem"],
