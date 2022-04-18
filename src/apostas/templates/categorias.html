@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Categorias{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/categorias.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="Titulo">
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        <div class="conteudoTitulo">
+            <h1>Categorias</h1>
+        </div>
+    </div>
+
+    <div class="TodasCat">
+        {% for i in categoriasTodas %}
+            <div class="UmaCat">
+                <a href="">
+                    <h1>
+                        {{i}}
+                    </h1>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

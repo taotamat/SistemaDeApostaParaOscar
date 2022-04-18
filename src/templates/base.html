@@ -15,15 +15,21 @@
   <body>
     
     <header class="padrao cabecalho">
-
+        
         <nav class="menu">
             <ul>
-                <a href="{% url 'home' %}"><li>Home</li></a>
-                <a href="{% url 'filmes' %}"><li>Filmes</li></a>
-                <!-- <a href=""><li>Maratona</li></a> -->
-                <a href=""><li>Apostar</li></a>
+                {% if id_user != None %}
+                  <a href="{% url 'home' %}"><li>Home</li></a>
+                  <a href="{% url 'filmes' %}"><li>Filmes</li></a>
+                  <a href="{% url 'categorias' %}"><li>Apostar</li></a>
+                  <a href=""><li>Resultados</li></a>
+                {% else %}
+                  <a href="{% url 'login' %}"><li>Login</li></a>
+                  <a href="{% url 'cadastro' %}"><li>Cadastro</li></a>
+                {% endif %}
+                  <!-- <a href=""><li>Maratona</li></a> -->
                 <!-- <a href=""><li>Estatísticas (Aqui a gente pode fazer a listagem dos vencedores dos anos anteriores)</li></a> -->
-                <a href=""><li>Resultados</li></a>
+                
                 <!-- <a><li>Vencedores</li></a> -->
             </ul> 
         </nav>
@@ -39,37 +45,37 @@
 
         
 
-
-        <button class="link_usuario" onclick="Mudarestado('opcoesUser')">
-          <div class="perfil" id="Perfil_header" style="background-color: #FCCD30;">
-            <div class="imagem">
-              <img src="https://cdn-icons-png.flaticon.com/512/456/456283.png" alt="user">
+        {% if id_user != None %}
+          <button class="link_usuario" onclick="Mudarestado('opcoesUser')">
+            <div class="perfil" id="Perfil_header" style="background-color: #FCCD30;">
+              <div class="imagem">
+                <img src="https://cdn-icons-png.flaticon.com/512/456/456283.png" alt="user">
+              </div>
             </div>
-          </div>
-        </button>
+          </button>
 
 
-        <div id="opcoesUser" style="display:none">
-          
-          <div class="aux_opcoes">
-            <div class="conteudo_opcoesUser">
-              <a href="{% url 'perfil' %}" class="opcoesUSER">
-                <h1>Perfil</h1> 
-              </a>
+          <div id="opcoesUser" style="display:none">
+            
+            <div class="aux_opcoes">
+              <div class="conteudo_opcoesUser">
+                <a href="{% url 'perfil' %}" class="opcoesUSER">
+                  <h1>Perfil</h1> 
+                </a>
+      
+      
+                <a href="{% url 'mudarDados' %}"  class="opcoesUSER">
+                  <h1>Alterar Dados</h1> 
+                </a>
     
-    
-              <a href="{% url 'mudarDados' %}"  class="opcoesUSER">
-                <h1>Alterar Dados</h1> 
-              </a>
-  
-              <a href="{% url 'sair' %}"  class="opcoesUSER">
-                <h1>Sair</h1> 
-              </a>
+                <a href="{% url 'sair' %}"  class="opcoesUSER">
+                  <h1>Sair</h1> 
+                </a>
 
 
+              </div>
             </div>
-          </div>
-
+          {% endif %}
           
 
           

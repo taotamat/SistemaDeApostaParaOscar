@@ -21,4 +21,5 @@ urlpatterns = [
     path('pagina_inicial/', include('pagina_inicial.urls')),
     path('auth/', include('usuarios.urls')),
     path('filmes/', include('filmes.urls')),
+    path('apostas/', include('apostas.urls'))
 ]

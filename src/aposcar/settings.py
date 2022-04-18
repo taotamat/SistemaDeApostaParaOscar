@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuarios',
     'filmes',
-    'pagina_inicial'
+    'pagina_inicial',
+    'apostas'
 ]
 
 MIDDLEWARE = [

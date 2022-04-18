@@ -16,13 +16,13 @@ def home(request):
     else:
         usuario = Usuario.objects.filter(id=id_user)[0]
 
-        
         indicados = pegaCategoria(categoria=CATEGORIAS[0][0])
 
         retorno = render(request, 'home.html', {
             "nome": usuario.nome,
             "banner": random.choice(MELHORES_BANNERS),
-            "indicados": indicados
+            "indicados": indicados,
+            "id_user": id_user
             }
         )
     

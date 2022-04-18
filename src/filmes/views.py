@@ -47,11 +47,12 @@ CATEGORIAS = [
 def filmes(request):
     status = request.GET.get('status')
     nome = list(Filme.objects.all())
+    id_usuario = request.session.get('usuario')
     return render(request, 'filmes.html', {
         "status": status, 
         "nome":nome,
-        "banner": random.choice(MELHORES_BANNERS) 
-        #"banner":pegaBanner(random.randint(0, 53))
+        "banner": random.choice(MELHORES_BANNERS),
+        "id_user": id_usuario
         })
 
 def pegaFilme(id_filme):
@@ -112,6 +113,7 @@ def filme(request, nome):
     genero = str(aux.genero).split(';')[0]
     nomeacoes = pegaNomeacoes(aux.id)
     bestPic = bestPicture(nomeacoes)
+    id_usuario = request.session.get('usuario')
     return render(request, 'filme_solo.html', {
         "status":status, 
         "filme":aux, 
@@ -122,7 +124,8 @@ def filme(request, nome):
         "qntNomeacoes":len(nomeacoes),
         "posicao":(int(aux.id)+1),
         "bestPic":bestPic,
-        "estadoTomatoe":pegaEstadoTomatoe(aux.tomatoes)
+        "estadoTomatoe":pegaEstadoTomatoe(aux.tomatoes),
+        "id_user": id_usuario
     })
 
 def buscaCategoriaPortugues(categoria):
@@ -148,3 +151,9 @@ def pegaCategoria(categoria):
         "Categoria": CATEGORIAS[buscaCategoriaPortugues(categoria)][1],
         "Indicados": retorno
     }
+
+def pegaCategoriasPT():
+    portu = []
+    for i in CATEGORIAS:
+        portu.append(i[1])
+    return portu

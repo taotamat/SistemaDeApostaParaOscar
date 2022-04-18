@@ -13,17 +13,26 @@ def perfil(request):
 
     return render(request, 'perfil.html', {
         'status': status,
-        'nome': usuario.nome
+        'nome': usuario.nome,
+        'id_user': usuario.id
         }
     )
 
 def login(request):
     status = request.GET.get('status')
-    return render(request, 'login.html', {'status': status})
+    return render(request, 'login.html', {
+        'status': status,
+        'id_user': None
+        }
+    )
 
 def cadastro(request):
     status = request.GET.get('status')
-    return render(request, 'cadastro.html', {'status': status})
+    return render(request, 'cadastro.html', {
+        'status': status,
+        'id_user': None
+        }
+    )
 
 def sair(request):
     request.session["usuario"] = None
@@ -31,7 +40,11 @@ def sair(request):
 
 def mudar_senha(request):
     status = request.GET.get('status')
-    return render(request, 'mudar_senha.html', {'status': status})
+    return render(request, 'mudar_senha.html', {
+        'status': status,
+        'id_user': None
+        }
+    )
 
 def mudarDados(request):
     status = request.GET.get('status')
@@ -42,7 +55,8 @@ def mudarDados(request):
         'status': status,
         'nomeUser': usuario.nome,
         'emailUser': usuario.email,
-        'senhaUser': sha256(usuario.senha.encode()).hexdigest()
+        'senhaUser': sha256(usuario.senha.encode()).hexdigest(),
+        'id_user': usuario.id
         }
     )
 
