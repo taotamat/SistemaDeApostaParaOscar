@@ -170,22 +170,25 @@
 /* ----------------------------------------------------------------- */
 
 .Assistir {
-    /* border: 1px solid #FCCD30; */
+    border: 1px solid #FCCD30;
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row-reverse;
+    width: 80%;
     justify-content: center;
     align-items: center;
     margin-top: 1em;
     font-size: 28px; 
+    padding: 0;
+    min-height: 150px;
 }
 
-.Assistir a{
+/* .Assistir a{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .Assistir a img {
@@ -200,7 +203,73 @@
 .Assistir a p{
     margin-top: 0;
     margin-bottom: 0;
+} */
+
+.justW {
+    border: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* border: 1px solid red; */
 }
+
+.justW img {
+    height: 30px;
+    border: 0px;
+}
+
+.CreditJustW {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.CreditJustW p {
+    font-size: 15px;
+    margin: 0;
+    text-align: left;
+}
+
+
+.justWlist, .justWlist a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justWlist a div{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: ease 0.2s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.justWlist a div:hover{
+    border: 1px solid rgba(252, 205, 48, 0.5);
+    color:rgba(252, 205, 48, 1);
+}
+
+.justWlist a div img {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ffff;
+}
+
+.justWlist a div p{
+    margin: 0px;
+    font-size: 20px;
+}
+
 
 /* ----------------------------------------------------------------- */
 
