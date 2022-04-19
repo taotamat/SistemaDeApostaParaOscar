@@ -145,10 +145,13 @@ def pegaCategoria(categoria):
     retorno = []
     for i in todos:
         retorno.append(
-            pegaFilme(id_filme=i.id_filme)
+            {
+                'Nomeacao': i,
+                'Filme': pegaFilme(id_filme=i.id_filme)
+            }
         )
     return {
-        "Categoria": CATEGORIAS[buscaCategoriaPortugues(categoria)][1],
+        "Categoria": CATEGORIAS[buscaCategoriaPortugues(categoria)],
         "Indicados": retorno
     }
 

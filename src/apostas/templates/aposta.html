@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Montar Aposta{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/categorias.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+    <p>Indicados a </p>
+    <h1>{{categoria.1}}</h1>
+
+    {% for i in indicados %}
+        <p>{{i.Nomeacao.responsavel}} by {{i.Filme.nome}}</p>
+    {% endfor %}
+
+{% endblock %}

@@ -12,6 +12,19 @@ def categorias(request):
         'status': status, 
         'id_user':id_usuario,
         "banner": random.choice(MELHORES_BANNERS),
-        'categoriasTodas': pegaCategoriasPT()
+        'categoriasTodas': CATEGORIAS
+        }
+    )
+
+
+def montar(request, categoria):
+    status = request.GET.get('status')
+    id_usuario = request.session.get('usuario')
+    c = pegaCategoria(categoria)
+    return render(request, 'aposta.html', {
+        'status': status, 
+        'id_user':id_usuario,
+        'categoria': c['Categoria'],
+        'indicados': c['Indicados']
         }
     )

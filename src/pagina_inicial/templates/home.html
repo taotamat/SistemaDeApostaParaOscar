@@ -22,16 +22,16 @@
     <div class="BestPic">
 
         <div class="titulo">
-            <h3>Indicados a {{indicados.Categoria}}:</h3>
+            <h3>Indicados a {{indicados.Categoria.1}}:</h3>
         </div>
 
         <div class="conteudoBestPic">
 
             {% for cada in indicados.Indicados %}
                 <div class="cadaPoster">
-                    <a class="posterFilme" href="{% url 'filme' cada.nome %}">
-                        <img  src="{{cada.poster}}">
-                        <p>{{cada.nome}}</p>
+                    <a class="posterFilme" href="{% url 'filme' cada.Filme.nome %}">
+                        <img  src="{{cada.Filme.poster}}">
+                        <p>{{cada.Filme.nome}}</p>
                     </a>
                 </div>
             {% endfor %}

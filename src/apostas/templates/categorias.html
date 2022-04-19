@@ -21,9 +21,9 @@
     <div class="TodasCat">
         {% for i in categoriasTodas %}
             <div class="UmaCat">
-                <a href="">
+                <a href="{% url 'montar' i.0 %}">
                     <h1>
-                        {{i}}
+                        {{i.1}}
                     </h1>
                 </a>
             </div>
