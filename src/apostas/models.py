@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 # Create your models here.
@@ -16,6 +17,9 @@ class Aposta(models.Model):
     pos8 = models.IntegerField(default=-1)
     pos9 = models.IntegerField(default=-1)
     pos10 = models.IntegerField(default=-1)
+
+    valor = models.FloatField(default=0.0)
+    dataA = models.DateTimeField(blank=True, null=True)
 
 
     def __str__(self) -> str:

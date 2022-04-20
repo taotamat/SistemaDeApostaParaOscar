@@ -18,7 +18,7 @@ MELHORES_BANNERS = [
     'https://image.tmdb.org//t/p/original/v85FlkbMYKa5du1glm0YfYNsL2n.jpg']
 
 CATEGORIAS = [
-    ["Best Picture ", "Melhor Filme", "POSTER"], 
+    ["Best Picture ", "Melhor Filme"], 
     ["Director ", "Melhor Diretor(a)"], 
     ["Actor ", "Melhor Ator"], 
     ["Actress ", "Melhor Atriz"], 
@@ -42,6 +42,8 @@ CATEGORIAS = [
     ["Sound ", "Melhor Som"],
     ["Visual Effects ", "Melhores Efeitos Visuais"]
     ]
+
+
 
 # Create your views here.
 def filmes(request):

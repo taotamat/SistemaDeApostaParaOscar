@@ -53,6 +53,8 @@ class Elenco(models.Model):
     nomeAtor = models.CharField(max_length=100)
     nomePersonagem = models.CharField(max_length=100)
     id_filme = models.IntegerField()
+    link_tmdb = models.URLField(default='')
+    imagem = models.URLField(default='')
 
     def __str__(self) -> str:
         return self.nomeAtor
