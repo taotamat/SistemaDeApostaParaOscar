@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Créditos{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+    <div class="Titulo">
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        <div class="conteudoTitulo">
+            <h1>Créditos</h1>
+        </div>
+    </div>
+
+
+    <div class="textoCredito">
+        <div>
+            <p>Todos os dados referentes aos filmes (título, duração, atores, gêneros, imagens, entre outros) foram fornecidos pelo <a href="https://www.themoviedb.org/" target="_blank" style="color:#90cea1"><i>The Movie Database</i></a> (TMDb).</p>
+            <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg">
+            <p><i>O sistema de aposta para o Oscar utiliza a API do TMDb, mas não é endossado ou certificado pelo TMDb.</i></p> 
+        </div>
+        
+    </div>
+
+{% endblock %}

@@ -97,7 +97,7 @@ def valida_login(request):
         retorno = redirect('/auth/login/?status=1')
     else:
         request.session['usuario'] = Usuario.objects.filter(email=email)[0].id
-        retorno = redirect(f'/pagina_inicial/home/')
+        retorno = redirect(f'/home/')
 
 
         """  completoUser = Usuario.objects.filter(email=email)[0].id
@@ -165,4 +165,4 @@ def alterarDados(request):
 
 
 
-# -----------#---------#------- #-
+# ---------#---------#------- #-

@@ -27,3 +27,14 @@ def home(request):
         )
     
     return retorno
+
+
+def creditos(request):
+    id_user = request.session.get('usuario')
+    status = request.GET.get('status')
+    return render(request, 'creditos.html', {
+        'status': status,
+        'id_user': id_user,
+        "banner": random.choice(MELHORES_BANNERS)
+        }
+    )
