@@ -1,0 +1,56 @@
+.TodasCatRes {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.UmaCategoria {
+    width: 45%;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 10px;
+    padding: 0px;
+}
+
+.UmaCategoria a {
+    display: flex;
+    min-height: 300px;
+    /* border: 1px solid orange; */
+}
+
+.imagemResult {
+    height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.imagemResult img {
+    height: 280px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.informacoes {
+    /* border: 3px solid palevioletred; */
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.informacoes h1 {
+    font-size: 30px;
+}
+
+.informacoes p {
+    font-size: 12px;
+}
+
+.informacoes h2 {
+    font-size: 25px;
+}

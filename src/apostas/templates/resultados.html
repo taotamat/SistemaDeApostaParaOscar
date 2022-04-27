@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Resultados{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/categorias.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resultados.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="Titulo">
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        <div class="conteudoTitulo">
+            <h1>Resultados</h1>
+        </div>
+    </div> 
+
+
+    {% if temResultados > 0 %}
+        <div class="TodasCatRes">
+
+            <h1>Você acertou X categorias.</h1>
+
+            {% for i in categoriasTodas %}
+                <div class="UmaCategoria">
+                    <a href=""> 
+                        
+                        <div class="imagemResult">
+                            <img src="https://a.ltrbxd.com/resized/film-poster/5/2/7/8/4/1/527841-the-power-of-the-dog-0-460-0-690-crop.jpg?k=494fc8c4ac">
+                        </div>
+                        
+
+                        <div class="informacoes">
+                            <h1 style="color: #FCCD30;">{{i.1}}</h1>
+                            <p>Fulano de tal</p>
+                            <p style="color: #FCCD30;">by</p>
+                            <h2>Nome do Filme</h2>
+                        </div>
+
+                        
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="TodasCatRes">
+            <p style="font-size: 22px;">Os resultados ainda não sairam. Por favor, aguarde novas informações.</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

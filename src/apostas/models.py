@@ -24,3 +24,11 @@ class Aposta(models.Model):
 
     def __str__(self) -> str:
         return self.categoria
+
+
+class Resultado(models.Model):
+    categoria = models.CharField(max_length=100)
+    id_indicado = models.IntegerField(default=-1) # Indicado vencedor
+
+    def __str__(self) -> str:
+        return self.categoria

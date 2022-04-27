@@ -22,7 +22,7 @@
                   <a href="{% url 'home' %}"><li>Home</li></a>
                   <a href="{% url 'filmes' %}"><li>Filmes</li></a>
                   <a href="{% url 'categorias' %}"><li>Apostar</li></a>
-                  <a href=""><li>Resultados</li></a>
+                  <a href="{% url 'resultados' %}"><li>Resultados</li></a>
                 {% else %}
                   <a href="{% url 'login' %}"><li>Login</li></a>
                   <a href="{% url 'cadastro' %}"><li>Cadastro</li></a>

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from filmes.views import pegaBanner, pegaCategoria, pegaCategoriasPT, CATEGORIAS, MELHORES_BANNERS
+from .models import Resultado
 import random
 
 # Create your views here.
@@ -26,5 +27,19 @@ def montar(request, categoria):
         'id_user':id_usuario,
         'categoria': c['Categoria'],
         'indicados': c['Indicados']
+        }
+    )
+
+def resultados(request):
+    status = request.GET.get('status')
+    id_usuario = request.session.get('usuario')
+    resultadosL = list(Resultado.objects.all())
+    return render(request, 'resultados.html', {
+        'status': status, 
+        'id_user':id_usuario,
+        'categoriasTodas': CATEGORIAS,
+        "banner": random.choice(MELHORES_BANNERS),
+        'temResultados':len(resultadosL),
+        'resultadosL': resultadosL
         }
     )
