@@ -1,7 +1,7 @@
 *.log
 *.pot
 *.pyc
-__pycache__
+*/__pycache__
 db.sqlite3
 media
 
@@ -10,9 +10,9 @@ media
 pip-log.txt 
 pip-delete-this-directory.txt 
 
-apostas/__pycache__/
-aposcar/__pycache__/
-filmes/__pycache__/
-pagina_inicial/__pycache__/
-usuarios/__pycache__/
+apostas/__pycache__
+aposcar/__pycache__
+filmes/__pycache__
+pagina_inicial/__pycache__
+usuarios/__pycache__
 
