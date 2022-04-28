@@ -1,0 +1,120 @@
+.yellow{
+    color: #FCCD30;
+}
+
+.green{
+    color: #A7AB42;
+}
+
+.red{
+    color: #fc5922;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.subtitulo{
+    font-size: 2.5em;
+    margin-right: 25px;
+    text-shadow: 3px 3px 0em rgba(20, 20, 20, .5);
+    text-align: center;
+}
+
+.aposta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 2em;
+}
+
+.parts{
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.filmes{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 1em;
+}
+
+.filme{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid white;
+    border-radius: 20px; */
+    align-items: center;
+    text-align: center;
+    padding: 1em 0.5em;
+    margin-right: 1em;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 0;
+    width: 900px;
+    height: 100%;
+}
+
+/*
+.indicacao .nome{
+    outline: 1px solid white;
+}*/
+
+.nome{
+    margin-bottom: 5px;
+}
+
+.indicado{
+    margin: 0;
+    display: flex;
+    width: 200px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster{
+    width: 100%;
+    height: 300px;
+}
+
+button{
+    height: 50px;
+    background-color: #141414;
+    border: 1px solid #ffffff;
+    color:rgb(255, 255, 255);
+    font-size: 1.3em;
+    margin-bottom: 1.5em;
+    transition: .2s;
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+button:hover{
+    /* border: 1px solid #FCCD30; */
+    background-color: #FCCD30;
+    color:#141414;
+}
+
+input{
+    background-color: #141414;
+    border: 1px solid #ffffff;
+    color:rgb(255, 255, 255);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5em;
+    text-align: center;
+    width: 200px;
+    margin: 0;
+}
+

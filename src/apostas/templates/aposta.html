@@ -1,18 +1,61 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block 'titulo' %}Montar Aposta{% endblock %} 
+{% block 'titulo' %}Fazer Aposta{% endblock %} 
 
 {% block 'head' %}
     <link rel="stylesheet" href="{% static 'css/categorias.css' %}">
+    <link rel="stylesheet" href="{% static 'css/apostas.css' %}">
 {% endblock %}
 
 {% block 'conteudo' %}
-    <p>Indicados a </p>
-    <h1>{{categoria.1}}</h1>
+    <div class="Titulo">
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        <div class="conteudoTitulo">
+            <h1>Indicados a </h1>
+            <h1 class="yellow">{{categoria.1}}</h1>
+        </div>
+    </div>
 
-    {% for i in indicados %}
-        <p>{{i.Nomeacao.responsavel}} by {{i.Filme.nome}}</p>
-    {% endfor %}
+    
+    <h2 class="subtitulo">Faça seu ranking com os vencedores:</h2>
+    <div class="aposta">
+        <div class="filmes">
+            <div class="parts">
+                {% for i in indicados %}
+                    <div class="filme">
+                        <img src="{{i.Filme.poster}}" class="poster" alt="poster filme">
+                        <div class="indicacao">
+                            <p class="indicado">{{i.Nomeacao.responsavel}}</p>
+                            <p class="yellow nome">{{i.Filme.nome}}</p>
+                        </div>               
+                        <input class="green" type="text">
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="parts">
+                {% for i in indicados2 %}
+                    <div class="filme">
+                        <img src="{{i.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{i.Nomeacao.responsavel}}</p>
+                        <p class="yellow">{{i.Filme.nome}}</p>
+                        <input class="red" type="text">
+                    </div>
+                {% endfor %}
+            </div>
+            
+        </div>
 
+        <div class="botoes">
+            <a href="{% url 'categorias' %}">
+                <button>Voltar</button>
+            </a>
+            <button>Fazer Aposta</button>
+        </div>
+        
+    </div>
+    
 {% endblock %}

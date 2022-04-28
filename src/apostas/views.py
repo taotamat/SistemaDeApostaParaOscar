@@ -21,10 +21,16 @@ def montar(request, categoria):
     status = request.GET.get('status')
     id_usuario = request.session.get('usuario')
     c = pegaCategoria(categoria)
+    if len(c['Indicados'])>5:
+        tam = 5
+    else:
+        tam = 3
     return render(request, 'aposta.html', {
         'status': status, 
         'id_user':id_usuario,
         'categoria': c['Categoria'],
-        'indicados': c['Indicados']
+        "banner": random.choice(MELHORES_BANNERS),
+        'indicados': c['Indicados'][:tam],
+        'indicados2': c['Indicados'][tam:]
         }
     )
