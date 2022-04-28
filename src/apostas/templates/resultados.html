@@ -15,36 +15,43 @@
             <img src="{{banner}}">
         </div>
         <div class="conteudoTitulo">
-            <h1>Resultados</h1>
+            <h1>Vencedores</h1>
         </div>
     </div> 
 
 
     {% if temResultados > 0 %}
+        <div class="placar">
+            <p>Você acertou</p>
+            <h1 style="color:rgba(252, 205, 48, 1);">X</h1>
+            <p>categorias.</p>
+        </div>
+
         <div class="TodasCatRes">
 
-            <h1>Você acertou X categorias.</h1>
-
-            {% for i in categoriasTodas %}
+            {% for i in resultadosL %}
                 <div class="UmaCategoria">
-                    <a href=""> 
-                        
-                        <div class="imagemResult">
-                            <img src="https://a.ltrbxd.com/resized/film-poster/5/2/7/8/4/1/527841-the-power-of-the-dog-0-460-0-690-crop.jpg?k=494fc8c4ac">
+                    <a>
+                       <div class="imagemResult">
+                            {% if i.ator == 1 %}
+                                <img src="{{i.indicado.imagem}}">
+                            {% else %}
+                                <img src="{{i.indicado.poster}}">
+                            {% endif %}
                         </div>
                         
-
                         <div class="informacoes">
-                            <h1 style="color: #FCCD30;">{{i.1}}</h1>
-                            <p>Fulano de tal</p>
-                            <p style="color: #FCCD30;">by</p>
-                            <h2>Nome do Filme</h2>
-                        </div>
-
-                        
+                            <h1 >{{ i.categoria }}</h1>
+                            <p style="color:rgba(252, 205, 48, 1);">{{ i.responsavel }}</p>
+                            <p><i>by</i></p>
+                            <h2 style="color:rgba(252, 205, 48, 1);">{{i.filme.nome}}</h2>
+                        </div> 
                     </a>
+                    
                 </div>
             {% endfor %}
+
+            
         </div>
     {% else %}
         <div class="TodasCatRes">

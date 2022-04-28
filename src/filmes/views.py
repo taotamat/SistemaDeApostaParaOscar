@@ -33,7 +33,10 @@ MELHORES_BANNERS = [
     'https://www.themoviedb.org/t/p/original/620hnMVLu6RSZW6a5rwO8gqpt0t.jpg',
     'https://www.themoviedb.org/t/p/original/g1sQr9ygKhQwMUjIRwkWFvza1S2.jpg',
     'https://image.tmdb.org//t/p/original/neE1BUsnWC0bYIiXbhNwxFgronZ.jpg',
-    'https://image.tmdb.org//t/p/original/1E408YATvJ49bjgSzB9YVk8GmTt.jpg'
+    'https://image.tmdb.org//t/p/original/1E408YATvJ49bjgSzB9YVk8GmTt.jpg',
+    'https://image.tmdb.org//t/p/original/pfaog3542ObQ2qONa34Oh8gJ5vq.jpg',
+    'https://image.tmdb.org//t/p/original/r4VQbiydjDH7ULo1HWjkkrNt3da.jpg',
+    'https://www.themoviedb.org/t/p/original/tHnHTp50qDx7br1i9ulh74MUW0A.jpg'
     ]
 
 CATEGORIAS = [
@@ -100,12 +103,31 @@ def pegaElenco(id_filme):
     else:
         return []
 
+def pegaElencoIndicado(nomeacao):
+    todos = list(Elenco.objects.all().filter(nomeAtor=nomeacao.responsavel))
+    retorno = None
+    if len(todos) > 0:
+        for i in todos:
+            if i.id_filme == nomeacao.id_filme:
+                retorno = i
+                break
+    return retorno
+
+
 def pegaNomeacoes(id_filme):
     todos = list(Nomination.objects.all().filter(id_filme=id_filme))
     if len(todos) > 0:
         return todos;
     else:
         return []
+
+def pegaNomeacaoId(id_nomeacao):
+    todos = list(Nomination.objects.all().filter(id=id_nomeacao))
+    if len(todos) > 0:
+        return todos;
+    else:
+        return []
+
 
 def bestPicture(nomeacoes):
     for i in nomeacoes:
