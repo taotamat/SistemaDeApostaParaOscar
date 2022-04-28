@@ -23,7 +23,6 @@ MELHORES_BANNERS = [
     'https://image.tmdb.org//t/p/original/fIlVvcmfjmbnWSjG9yZkRy9FAmE.jpg',
     'https://image.tmdb.org//t/p/original/95SwyPKoWGK35zOnAjikra7OFIQ.jpg',
     'https://image.tmdb.org//t/p/original/p1eneBfZCGbbzicwksOhIaibUwk.jpg',
-    'https://www.themoviedb.org/t/p/original/rKe3MR2u4ZZ0y9uKivzKJRrqBCe.jpg',
     'https://image.tmdb.org//t/p/original/kcUuumAlMWqw7SzXE4DEqd3M8Gc.jpg',
     'https://image.tmdb.org//t/p/original/4KLlHifB1kgMtWl3YnY8JinOj65.jpg',
     'https://image.tmdb.org//t/p/original/kheUYWQcQ340LJDWTgu5STvS1Ma.jpg',
