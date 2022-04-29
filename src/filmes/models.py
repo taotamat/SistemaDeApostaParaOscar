@@ -34,6 +34,8 @@ class Filme(models.Model):
 
     tomatoes = models.IntegerField(default=0)
 
+    lingua = models.CharField(max_length=100, default='Inglês')
+
     def __str__(self) -> str:
         return self.nome
 
