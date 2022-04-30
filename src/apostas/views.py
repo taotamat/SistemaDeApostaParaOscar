@@ -40,7 +40,7 @@ def resultados(request):
     indicacoes = []
 
     for i in resultadosL:
-        nomeacao = pegaNomeacaoId(i.id_indicado)
+        nomeacao = pegaNomeacaoId(i.id_indicado.id)
         if len(nomeacao) > 0:
             indicacoes.append(nomeacao[0])
     

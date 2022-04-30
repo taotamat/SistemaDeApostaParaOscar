@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from filmes.models import Nomination
 
 # Create your models here.
 # Create your models here.
@@ -28,7 +29,7 @@ class Aposta(models.Model):
 
 class Resultado(models.Model):
     categoria = models.CharField(max_length=100)
-    id_indicado = models.IntegerField(default=-1) # Indicado vencedor
+    id_indicado = models.ForeignKey(Nomination, on_delete=models.DO_NOTHING) # Indicado vencedor
 
     def __str__(self) -> str:
         return self.categoria

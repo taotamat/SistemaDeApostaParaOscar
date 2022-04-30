@@ -69,4 +69,4 @@ class Nomination(models.Model):
     id_filme = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.categoria
+        return f'{self.categoria} - {self.responsavel}'
