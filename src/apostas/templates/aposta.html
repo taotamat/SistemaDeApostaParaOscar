@@ -20,42 +20,157 @@
     </div>
 
     
-    <h2 class="subtitulo">Faça seu ranking com os vencedores:</h2>
+    <h2 class="subtitulo">Faça seu ranking com os vencedores:</h2> 
     <div class="aposta">
-        <div class="filmes">
-            <div class="parts">
-                {% for i in indicados %}
+        <div class="fazerAposta">
+            {% if qnt < 10 %}
+            <form action="post" class="filmes">
+                <div class="parts">
                     <div class="filme">
-                        <img src="{{i.Filme.poster}}" class="poster" alt="poster filme">
-                        <div class="indicacao">
-                            <p class="indicado">{{i.Nomeacao.responsavel}}</p>
-                            <p class="yellow nome">{{i.Filme.nome}}</p>
-                        </div>               
-                        <input class="green" type="text">
+                        <img src="{{indicados.0.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.0.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.0.Filme}}</p>
+                        {{form.pos1}}
                     </div>
-                {% endfor %}
-            </div>
-            
-            <div class="parts">
-                {% for i in indicados2 %}
                     <div class="filme">
-                        <img src="{{i.Filme.poster}}" class="poster" alt="poster filme">
-                        <p class="indicado">{{i.Nomeacao.responsavel}}</p>
-                        <p class="yellow">{{i.Filme.nome}}</p>
-                        <input class="red" type="text">
+                        <img src="{{indicados.1.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.1.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.1.Filme}}</p>
+                        {{form.pos2}}
                     </div>
-                {% endfor %}
-            </div>
-            
+                    <div class="filme">
+                        <img src="{{indicados.2.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.2.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.2.Filme}}</p>
+                        {{form.pos3}}
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.3.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.3.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.3.Filme}}</p>
+                        {{form.pos4}}
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.4.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.4.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.4.Filme}}</p>
+                        {{form.pos5}}
+                    </div>
+                </div>
+                <div class="botoes">
+                    <a href="{% url 'categorias' %}">
+                        <button>Voltar</button>
+                    </a>
+                    <button type="submit">Fazer Aposta</button>
+                </div>
+            </form>
+
+            {% else %}
+            <form action="post" class="filmes">
+                <div class="parts">
+                    <div class="filme">
+                        <img src="{{indicados.0.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.0.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.0.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.1.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.1.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.1.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.2.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.2.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.2.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.3.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.3.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.3.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.4.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.4.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.4.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                </div>
+                
+
+                <div class="parts">
+
+                    <div class="filme">
+                        <img src="{{indicados.5.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.5.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.5.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.6.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.6.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.6.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.7.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.7.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.7.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.8.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.8.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.8.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                    <div class="filme">
+                        <img src="{{indicados.9.Filme.poster}}" class="poster" alt="poster filme">
+                        <p class="indicado">{{indicados.9.Nomeacao.responsavel}}</p>
+                        <p class="yellow nome">{{indicados.9.Filme}}</p>
+                        <input type="text" id="f1">
+                    </div>
+                </div>
+               
+                <div class="botoes">
+                    <a href="{% url 'categorias' %}">
+                        <button>Voltar</button>
+                    </a>
+                    <button>Fazer Aposta</button>
+                </div>
+            </form>
+            {% endif %}
         </div>
 
-        <div class="botoes">
-            <a href="{% url 'categorias' %}">
-                <button>Voltar</button>
-            </a>
-            <button>Fazer Aposta</button>
-        </div>
+       
         
     </div>
     
 {% endblock %}
+
+<!-- <div class="filmes">
+    <div class="parts">
+        {% for i in indicados %}
+            <div class="filme">
+                <img src="{{i.Filme.poster}}" class="poster" alt="poster filme">
+                <div class="indicacao">
+                    <p class="indicado">{{i.Nomeacao.responsavel}}</p>
+                    <p class="yellow nome">{{i.Filme.nome}}</p>
+                </div>               
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="parts">
+        {% for i in indicados2 %}
+            <div class="filme">
+                <img src="{{i.Filme.poster}}" class="poster" alt="poster filme">
+                <p class="indicado">{{i.Nomeacao.responsavel}}</p>
+                <p class="yellow nome">{{i.Filme.nome}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div> -->

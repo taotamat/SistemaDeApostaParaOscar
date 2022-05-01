@@ -118,3 +118,15 @@ input{
     margin: 0;
 }
 
+.fazerAposta{
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid white;
+    align-items: center;
+
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+}
