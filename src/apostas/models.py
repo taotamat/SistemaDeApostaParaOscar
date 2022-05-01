@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
+from filmes.models import Nomination
 
 
 # Create your models here.
@@ -23,6 +24,14 @@ class Aposta(models.Model):
     valor = models.FloatField(default=0.0)
     dataA = models.DateTimeField(blank=True, null=True)
 
+
+    def __str__(self) -> str:
+        return self.categoria
+
+
+class Resultado(models.Model):
+    categoria = models.CharField(max_length=100)
+    id_indicado = models.ForeignKey(Nomination, on_delete=models.DO_NOTHING) # Indicado vencedor
 
     def __str__(self) -> str:
         return self.categoria

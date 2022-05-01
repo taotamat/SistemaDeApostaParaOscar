@@ -14,8 +14,30 @@ MELHORES_BANNERS = [
     'https://image.tmdb.org//t/p/original/sMYhsydRtuOmYZYLrQZWaNZ6nIY.jpg',
     'https://image.tmdb.org//t/p/original/sfjqJDmNqMIImO5khiddb9TARvO.jpg',
     'https://image.tmdb.org//t/p/original/lzWHmYdfeFiMIY4JaMmtR7GEli3.jpg',
-    'https://image.tmdb.org//t/p/original/cS9wPYC99khLSBKvmhLATAVa19x.jpg',
-    'https://image.tmdb.org//t/p/original/v85FlkbMYKa5du1glm0YfYNsL2n.jpg']
+    'https://image.tmdb.org//t/p/original/v85FlkbMYKa5du1glm0YfYNsL2n.jpg',
+    'https://image.tmdb.org//t/p/original/dcuGg7tXvkHIUugfIlY1TWVxZQA.jpg',
+    'https://image.tmdb.org//t/p/original/3DgGjoMjd188LN4v24Kw7iClKbT.jpg',
+    'https://image.tmdb.org//t/p/original/tFwuQaHSFlb6mMDre3zruuux5Vk.jpg',
+    'https://image.tmdb.org//t/p/original/CKGSEnFTpcxPJM5TzTFUJz53s.jpg',
+    'https://image.tmdb.org//t/p/original/mqDnDhG5N6fn1H4MKQqr8E5wfeK.jpg',
+    'https://image.tmdb.org//t/p/original/fIlVvcmfjmbnWSjG9yZkRy9FAmE.jpg',
+    'https://image.tmdb.org//t/p/original/95SwyPKoWGK35zOnAjikra7OFIQ.jpg',
+    'https://image.tmdb.org//t/p/original/p1eneBfZCGbbzicwksOhIaibUwk.jpg',
+    'https://image.tmdb.org//t/p/original/kcUuumAlMWqw7SzXE4DEqd3M8Gc.jpg',
+    'https://image.tmdb.org//t/p/original/4KLlHifB1kgMtWl3YnY8JinOj65.jpg',
+    'https://image.tmdb.org//t/p/original/kheUYWQcQ340LJDWTgu5STvS1Ma.jpg',
+    'https://image.tmdb.org//t/p/original/7CkspL1h98JiqGWKHYdvs88FJSE.jpg',
+    'https://image.tmdb.org//t/p/original/aA2ndZKxbEnM2C6PEeg1p3WwPwS.jpg',
+    'https://image.tmdb.org//t/p/original/vi5gyubNPhDF7f4HeJvvjZBJzJA.jpg',
+    'https://image.tmdb.org//t/p/original/x1d11fjOMGcAsi0ehxJ7l7u7HS2.jpg',
+    'https://www.themoviedb.org/t/p/original/620hnMVLu6RSZW6a5rwO8gqpt0t.jpg',
+    'https://www.themoviedb.org/t/p/original/g1sQr9ygKhQwMUjIRwkWFvza1S2.jpg',
+    'https://image.tmdb.org//t/p/original/neE1BUsnWC0bYIiXbhNwxFgronZ.jpg',
+    'https://image.tmdb.org//t/p/original/1E408YATvJ49bjgSzB9YVk8GmTt.jpg',
+    'https://image.tmdb.org//t/p/original/pfaog3542ObQ2qONa34Oh8gJ5vq.jpg',
+    'https://image.tmdb.org//t/p/original/r4VQbiydjDH7ULo1HWjkkrNt3da.jpg',
+    'https://www.themoviedb.org/t/p/original/tHnHTp50qDx7br1i9ulh74MUW0A.jpg'
+    ]
 
 CATEGORIAS = [
     ["Best Picture ", "Melhor Filme"], 
@@ -81,12 +103,31 @@ def pegaElenco(id_filme):
     else:
         return []
 
+def pegaElencoIndicado(nomeacao):
+    todos = list(Elenco.objects.all().filter(nomeAtor=nomeacao.responsavel))
+    retorno = None
+    if len(todos) > 0:
+        for i in todos:
+            if i.id_filme == nomeacao.id_filme:
+                retorno = i
+                break
+    return retorno
+
+
 def pegaNomeacoes(id_filme):
     todos = list(Nomination.objects.all().filter(id_filme=id_filme))
     if len(todos) > 0:
         return todos;
     else:
         return []
+
+def pegaNomeacaoId(id_nomeacao):
+    todos = list(Nomination.objects.all().filter(id=id_nomeacao))
+    if len(todos) > 0:
+        return todos;
+    else:
+        return []
+
 
 def bestPicture(nomeacoes):
     for i in nomeacoes:

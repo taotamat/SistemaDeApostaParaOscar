@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Resultados{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/categorias.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resultados.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="Titulo">
+        <div class="Banner">
+            <img src="{{banner}}">
+        </div>
+        <div class="conteudoTitulo">
+            <h1>Resultados</h1>
+        </div>
+    </div> 
+
+
+    {% if temResultados > 0 %}
+        <div class="placar">
+            <p>Você acertou</p>
+            <h1 style="color:rgba(252, 205, 48, 1);">X</h1>
+            <p>categorias.</p>
+        </div>
+
+        <div class="TodasCatRes">
+
+            {% for i in resultadosL %}
+                <div class="UmaCategoria">
+                    <a>
+                       <div class="imagemResult">
+                            {% if i.ator == 1 %}
+                                <img src="{{i.indicado.imagem}}">
+                            {% else %}
+                                <img src="{{i.indicado.poster}}">
+                            {% endif %}
+                        </div>
+                        
+                        <div class="informacoes">
+                            <h1 >{{ i.categoria }}</h1>
+                            <p style="color:rgba(252, 205, 48, 1);">{{ i.responsavel }}</p>
+                            <p><i>by</i></p>
+                            <h2 style="color:rgba(252, 205, 48, 1);">{{i.filme.nome}}</h2>
+                        </div> 
+                    </a>
+                    
+                </div>
+            {% endfor %}
+
+            
+        </div>
+    {% else %}
+        <div class="TodasCatRes">
+            <p style="font-size: 22px;">Os resultados ainda não sairam. Por favor, aguarde novas informações.</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,89 @@
+
+
+.TodasCatRes {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.UmaCategoria {
+    width: 45%;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 10px;
+    padding: 0px;
+    min-height: 250px;
+}
+
+.UmaCategoria a {
+    display: flex;
+    min-height: 300px;
+    /* border: 1px solid orange; */
+}
+
+.imagemResult {
+    height: 350px;
+    display: flex;
+    align-items: center;
+}
+
+.imagemResult img {
+    height: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.informacoes {
+    /* border: 3px solid palevioletred; */
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.informacoes h1, .informacoes p, .informacoes h2, .placar p, .placar h1{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    /* margin-bottom: 15px; */
+    margin-inline-end: 0px;
+}
+
+.informacoes h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.informacoes p {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.informacoes h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.placar {
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4em;
+    margin-bottom: 2em;
+}
+
+.placar p{
+    font-size: 25px;
+}
+
+.placar h1 {
+    font-size: 75px;
+}

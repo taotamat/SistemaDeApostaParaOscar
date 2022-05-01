@@ -34,6 +34,10 @@ class Filme(models.Model):
 
     tomatoes = models.IntegerField(default=0)
 
+    lingua = models.CharField(max_length=100, default='Inglês')
+
+    edicao = models.IntegerField(default=2022)
+
     def __str__(self) -> str:
         return self.nome
 
@@ -67,4 +71,4 @@ class Nomination(models.Model):
     id_filme = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.categoria
+        return f'{self.categoria} - {self.responsavel}'
