@@ -36,6 +36,8 @@ class Filme(models.Model):
 
     lingua = models.CharField(max_length=100, default='Inglês')
 
+    edicao = models.IntegerField(default=2022)
+
     def __str__(self) -> str:
         return self.nome
 
