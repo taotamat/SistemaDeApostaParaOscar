@@ -532,10 +532,13 @@
     justify-content: center; */
 }
 
+
+
+
 .uma_nomeacao {
     display: flex;
-    margin-bottom: 1em;
-    border-bottom: 1px solid #FCCD30;
+    /* margin-bottom: 1em; */
+    /* border-bottom: 1px solid #FCCD30; */
     padding-bottom: 15px;
     width: 100%;
 }
@@ -584,7 +587,17 @@
     width: 100%;   
 }
 
+.linkApostar {
+    transition: ease-in .3s;
+    border-bottom: 1px solid #FCCD30;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 
+.linkApostar:hover {
+    border-bottom: 0px;
+    border: 1px solid #FCCD30;
+}
 
 
 

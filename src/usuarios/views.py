@@ -99,10 +99,6 @@ def valida_login(request):
         request.session['usuario'] = Usuario.objects.filter(email=email)[0].id
         retorno = redirect(f'/home/')
 
-
-        """  completoUser = Usuario.objects.filter(email=email)[0].id
-        retorno = redirect(f'/pagina_inicial/home/?id_user={completoUser.id}') """
-
     return retorno
 
 def valida_mudanca_senha(request):

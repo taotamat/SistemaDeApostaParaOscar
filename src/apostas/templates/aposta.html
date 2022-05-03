@@ -24,7 +24,7 @@
     <div class="aposta">
         <div class="fazerAposta">
             {% if qnt < 10 %}
-            <form action="post" class="filmes">
+            <form class="filmes" method="POST" action="{% url 'finalizar' %}">
                 <div class="parts">
                     <div class="filme">
                         <img src="{{indicados.0.Filme.poster}}" class="poster" alt="poster filme">

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Apostar{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/aposta2.css' %}">
+{% endblock %}
+
+
+{% block 'conteudo' %}
+
+    <div class="alertas">
+        {% if status == '1'%}
+            <div class="alerta errado">
+                <p>Todos os campos devem ser preenchidos!</p> 
+            </div>
+        {% endif %}
+
+        {% if status == '2'%}
+            <div class="alerta errado">
+                <p>Valores inválidos!</p> 
+            </div>
+        {% endif %}
+
+        {% if status == '3'%}
+            <div class="alerta errado">
+                <p>Não são aceitos valores repetidos!</p> 
+            </div>
+        {% endif %}
+
+    </div>
+
+    
+
+    <div class="titulo">
+        <h1>Apostar na Categoria: {{categoria.1}}</h1>
+    </div>
+
+
+    <form class="formulario" method="POST" action="{% url 'verificar' categoria.0 %}"> {% csrf_token %}
+
+        <div class="inds">
+            {% for i in indicados %}
+                
+                <div class="indicado">
+                    <a class="linkFilme" href="{% url 'filme' i.Filme.nome %}">
+                        <div class="infInd">
+                                
+                            {% if i.Ator == 1 %}
+                                <img src="{{i.imagem.imagem}}">
+                            {% else %}
+                                <img src="{{i.imagem}}">
+                            {% endif %}
+
+                            <h2>{{i.Nomeacao.responsavel}}</h2>
+                            <p>by</p>
+                            <h2>{{i.Filme.nome}}</h2>
+                        </div>
+                    </a>
+                    <input class="inputs" name="{{i.posicao}}" type="number" placeholder="Posição" autocomplete="off">
+                </div>
+                
+                
+            
+            {% endfor %}
+        </div>
+
+        <input class="enviar" type="submit" value="Enviar">
+
+    </form>
+
+    <p>{{indicados}}</p>
+
+{% endblock %}

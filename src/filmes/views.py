@@ -45,7 +45,7 @@ CATEGORIAS = [
     ["Actor ", "Melhor Ator"], 
     ["Actress ", "Melhor Atriz"], 
     ["Supporting Actor ", "Melhor Ator Coadjuvante"], 
-    ["Supporting Actor ", "Melhor Atriz Coadjuvante"],
+    ["Supporting Actress ", "Melhor Atriz Coadjuvante"],
     ["Adapted Screenplay ", "Melhor Roteiro Adaptado"],
     ["Original Screenplay ", "Melhor Roteiro Original"],
     ["Cinematography ", "Melhor Fotografia"],
@@ -127,7 +127,6 @@ def pegaNomeacaoId(id_nomeacao):
         return todos;
     else:
         return []
-
 
 def bestPicture(nomeacoes):
     for i in nomeacoes:

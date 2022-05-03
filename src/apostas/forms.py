@@ -1,6 +1,6 @@
-from cProfile import label
+""" from cProfile import label
 from typing_extensions import Self
-from attr import fields
+from attr import fields """
 from django import forms
 
 from apostas.models import Aposta

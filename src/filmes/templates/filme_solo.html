@@ -265,6 +265,8 @@
 
             <div class="listagem">
                 {% for i in nomeacoes %}
+                    <a class="linkApostar" href="{% url 'montar' i.categoria %}">
+                    
                     <div class="uma_nomeacao">
                         <div class="nao_importante">
                            <p>{{forloop.counter}}</p> 
@@ -285,7 +287,9 @@
                         </div>
                         
                         
-                    </div>
+                    </div>  
+                    </a>
+                    
                     
                 {% endfor %}
             </div>

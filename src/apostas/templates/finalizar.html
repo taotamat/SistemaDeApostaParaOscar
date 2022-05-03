@@ -4,11 +4,61 @@
 {% block 'titulo' %}Finalizar Aposta{% endblock %} 
 
 {% block 'head' %}
-    <!-- <link rel="stylesheet" href="{% static 'css/categorias.css' %}">
-    <link rel="stylesheet" href="{% static 'css/apostas.css' %}"> -->
     <link rel="stylesheet" href="{% static 'css/finalizar.css' %}">
 {% endblock %}
 
 {% block 'conteudo' %}
+
+    <!-- <p>{{aposta}}</p>
+    <p>{{indicados}}</p>
+
+    {% for i in indicados %}
+        <p>{{i}}</p>
+
+    {% endfor %}
+
+    <br>
+    <br>
+
+    <p>{{novo}}</p> -->
+
+    <div class="titulo">
+        <h1>
+            Finalizar Aposta
+        </h1>
+    </div>
+
+    <div class="ConteudoFinalizar">
+
+        {% for i in indicados %}
+            <div class="Indicado">
+
+                <div class="Pos">
+                    <h1>
+                        {{forloop.counter}}
+                    </h1>
+                </div>
+
+                <div class="Imagem">
+                    <img src="{{i.imagem}}">
+                </div>
+
+                <div class="Infor">
+                    <p>
+                        {{i.Nomeacao.0.responsavel}}
+                    </p>
+
+                    <p>by</p>
+
+                    <p style="color:#FCCD30">
+                        {{i.Filme.nome}}
+                    </p>
+
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
 
 {% endblock %}
