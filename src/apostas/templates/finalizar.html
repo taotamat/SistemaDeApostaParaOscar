@@ -5,6 +5,7 @@
 
 {% block 'head' %}
     <link rel="stylesheet" href="{% static 'css/finalizar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/apostas.css' %}">
 {% endblock %}
 
 {% block 'conteudo' %}
@@ -57,6 +58,15 @@
                 </div>
             </div>
         {% endfor %}
+
+        <div class="botoes">
+            <a href="{% url 'categorias' %}">
+                <button>Voltar</button>
+            </a>
+            <a href="">
+                <button type="submit">Finalizar Aposta</button>
+            </a>
+        </div>
 
     </div>
 

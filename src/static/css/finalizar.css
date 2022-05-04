@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 2em;
     margin-bottom: 10em;
     /* border: 1px solid pink; */
 }
