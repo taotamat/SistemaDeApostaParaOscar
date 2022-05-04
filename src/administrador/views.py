@@ -112,6 +112,12 @@ def notificarTodos(mensagem, titulo):
 def busca_notifica(usuario, mensagem, titulo):
     notificar(usuario.id, mensagem, titulo)
 
-
-
+def notificaA(request):
+    id_a = request.session.get('administrador')
+    status = request.GET.get('status')
+    return render(request, 'notificaA.html', {
+        'status': status,
+        'id_admin': id_a
+        }
+    )
 
