@@ -1,0 +1,128 @@
+/* ------------------------------------- */ 
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cate {
+    width: 100%;
+    font-size: 40px;
+    margin-left: 40px;
+}
+
+.cadCate {
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+    border-bottom: 1px solid yellow;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lista {
+    width: 100%;
+    font-size: 18pt;
+}
+
+.inputs {
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+    margin-right: 10px;
+    /* border-bottom: 1px solid yellow; */
+}
+
+.inputs label {
+    font-size: 50px;
+}
+
+.centralizados {
+    width: 10%;
+    min-height: 100px;
+}
+
+.centralizados input {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 22pt;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #141414;
+    border: 0;
+    border: 1px solid #ffffff;
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.centralizados input:hover {
+    color: #141414;
+    background-color: #FCCD30;
+}
+
+/* ---------------------------------------------------------- */
+.res_selecionados {
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    
+}
+
+
+.selecionado {
+    border-bottom: 1px solid #FCCD30;
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.selecionado h1, .informacoes {
+    margin-left: 25px;
+}
+
+.informacoes {
+    /* border: 1px solid red; */
+    font-size: 25px;
+    display: flex;
+}
+
+.informacoes h1, .informacoes p {
+    margin-right: 15px;
+}
+
+.Botao {
+    /* border: 1px solid white; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 150px;
+}
+
+.salvar, .voltar {
+    border: 1px solid #ffffff;
+    width: 10%;
+    font-size: 22px;
+    background-color: #141414;
+    display: flex;
+    justify-content: center;
+    transition: ease-in-out 0.3s;
+}
+
+.salvar:hover, .voltar:hover {
+    background-color: #FCCD30;
+    color: #141414;
+}
+
+.salvar {
+    margin-right: 15px;
+}
+

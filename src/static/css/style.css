@@ -341,6 +341,52 @@ footer h2 {
     margin-top: 15px;
 }
 
+/* fallback */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/sandbox/materialsymbolsoutlined/v7/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1n-q_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
+}
+  
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+}
+
+
+.notificacoes {
+    /* border: 1px solid yellowgreen; */
+    width: 2em;
+    font-size: 50px;
+    display: flex;
+    margin-right: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+/* fallback */
+@font-face {
+    font-family: 'Material Symbols Sharp';
+    font-style: normal;
+    font-weight: 100 700;
+    src: url(https://fonts.gstatic.com/s/sandbox/materialsymbolssharp/v7/gNMVW2J8Roq16WD5tFNRaeLQk6-SHQ_R00k4aWE.woff2) format('woff2');
+}
+  
+.material-symbols-sharp {
+    font-family: 'Material Symbols Sharp';
+    font-weight: normal;
+    font-style: normal;
+    color: #FCCD30;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+}
+
 
 
 

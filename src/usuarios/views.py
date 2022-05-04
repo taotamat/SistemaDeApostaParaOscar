@@ -158,6 +158,18 @@ def alterarDados(request):
 
     return redirect(f'/auth/mudarDados/?status={s}')
 
+def pegaUser(id_user):
+    todos = list(Usuario.objects.all().filter(id=id_user))
+    if len(todos) == 0:
+        return None
+    else:
+        return todos[0]
+
+def notificar(id_user, mensagem):
+    usuario = pegaUser(id_user)
+    
+
+
 
 
 

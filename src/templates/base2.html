@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>{% block 'titulo' %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/administrador.css' %}">
+    {% block 'head' %} {% endblock %}
+  </head>
+  <body>
+    
+    <header class="padrao cabecalho">
+        
+        <div class="cabecalhoA">
+          <h1>Administrador</h1>
+        </div>
+        
+
+    </header>
+
+    <div class="padrao conteudo">
+        {% block 'conteudo' %}{% endblock %}
+    </div>
+    
+
+    <script src="/static/js/script.js"></script>
+
+  </body>
+</html>

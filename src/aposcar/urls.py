@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include('pagina_inicial.urls')),
     path('auth/', include('usuarios.urls')),
     path('filmes/', include('filmes.urls')),
-    path('apostas/', include('apostas.urls'))
+    path('apostas/', include('apostas.urls')),
+    path('administrador/', include('administrador.urls'))
 ]

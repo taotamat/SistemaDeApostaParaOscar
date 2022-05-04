@@ -36,7 +36,8 @@ MELHORES_BANNERS = [
     'https://image.tmdb.org//t/p/original/1E408YATvJ49bjgSzB9YVk8GmTt.jpg',
     'https://image.tmdb.org//t/p/original/pfaog3542ObQ2qONa34Oh8gJ5vq.jpg',
     'https://image.tmdb.org//t/p/original/r4VQbiydjDH7ULo1HWjkkrNt3da.jpg',
-    'https://www.themoviedb.org/t/p/original/tHnHTp50qDx7br1i9ulh74MUW0A.jpg'
+    'https://www.themoviedb.org/t/p/original/tHnHTp50qDx7br1i9ulh74MUW0A.jpg',
+    'https://image.tmdb.org//t/p/original/nt0TypFdgrPflRyt3ft4PsQQcTC.jpg'
     ]
 
 CATEGORIAS = [
@@ -193,6 +194,7 @@ def pegaCategoria(categoria):
             }
         )
     return {
+        "CategoriaE": categoria,
         "Categoria": CATEGORIAS[buscaCategoriaPortugues(categoria)],
         "Indicados": retorno
     }
@@ -202,3 +204,11 @@ def pegaCategoriasPT():
     for i in CATEGORIAS:
         portu.append(i[1])
     return portu
+
+def pegaTodosIndicados():
+    todos = []
+    for i in CATEGORIAS:
+        todos.append(
+            pegaCategoria(i[0])
+        )
+    return todos

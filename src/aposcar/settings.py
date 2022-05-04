@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'usuarios',
     'filmes',
     'pagina_inicial',
-    'apostas'
+    'apostas',
+    'administrador'
 ]
 
 MIDDLEWARE = [
