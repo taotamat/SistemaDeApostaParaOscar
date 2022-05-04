@@ -6,5 +6,6 @@ urlpatterns = [
     path('montar/?P<categoria>[-a-zA-Z0-9_]+)\\Z/', views.montar, name='montar'),
     path('resultados/', views.resultados, name='resultados'),
     path('verificar/?P<categoria>[-a-zA-Z0-9_]+)\\Z/', views.verificar, name='verificar'),
-    path('finalizar/', views.finalizar, name='finalizar')
+    path('finalizar/', views.finalizar, name='finalizar'),
+    path('salvaAposta/', views.salvaAposta, name='salvaAposta')
 ]

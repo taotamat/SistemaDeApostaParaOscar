@@ -4,8 +4,10 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from apostas.forms import *
 from filmes.views import pegaElencoIndicado, pegaElenco, pegaFilme, pegaNomeacaoId, pegaBanner, pegaCategoria, pegaCategoriasPT, CATEGORIAS, MELHORES_BANNERS
-from .models import Resultado
+from .models import Resultado, Aposta
 import random
+from datetime import datetime
+from administrador.views import notificar, notificarTodos, busca_notifica
 
 # Create your views here.
 def categorias(request):
@@ -19,7 +21,6 @@ def categorias(request):
         }
     )
 
-
 def ehAtor(categoria):
     retorno = False
     for i in ['Actor ', 'Actress ', 'Supporting Actor ', 'Supporting Actress ']:
@@ -27,7 +28,6 @@ def ehAtor(categoria):
             retorno = True
             break
     return retorno
-
 
 def acrescentaIMG(indicados, categoria):
     ator = ehAtor(categoria)
@@ -50,7 +50,6 @@ def acrescentaIMG(indicados, categoria):
 
     return indicados
 
-
 def ajustaSessionIndicados(indicados):
     retorno = []
     for i in indicados:
@@ -71,8 +70,6 @@ def ajustaSessionIndicados(indicados):
     
     return retorno
 
-
-
 def montar(request, categoria):
     status = request.GET.get('status')
     id_usuario = request.session.get('usuario')
@@ -92,38 +89,6 @@ def montar(request, categoria):
         'c': c
         }
     )
-
-    """ status = request.GET.get('status')
-    id_usuario = request.session.get('usuario')
-    c = pegaCategoria(categoria)
-    
-    if len(c['Indicados'])>5:
-        tam = 10
-        formulario = Aposta10()
-#        if request.method == 'POST':
-#            formulario = Aposta10(request.POST)
-#            if formulario.is_valid():
-#                formulario.save()
-    else:
-        tam = 5
-        formulario = Aposta5()
-#        if request.method == 'POST':
-#            formulario = Aposta5(request.POST)
-#            if formulario.is_valid():
-#                formulario.save()
-
-    return render(request, 'aposta.html', {
-        'form':formulario,
-        'status': status, 
-        'id_user':id_usuario,
-        'categoria': c['Categoria'],
-        "banner": random.choice(MELHORES_BANNERS),
-        'indicados': c['Indicados'],
-        'qnt': tam
-        
-        }
-    ) """
-
 
 def resultados(request):
     status = request.GET.get('status')
@@ -160,25 +125,33 @@ def resultados(request):
 def verificar(request, categoria):
     qnt = 10 if categoria == 'Best Picture ' else 5
 
+    valor = request.POST.get('valor')
+
     tudo = []
     for i in range(1, qnt+1):
-        tudo.append(request.POST.get(f'pos_{i}'))
+        tudo.append(
+            {
+                'posicao': i,
+                'id_nomeado': request.POST.get(f'pos_{i}')
+            }
+        )  
 
     retorno = None
 
-    if '' in tudo:
-        return redirect(f'/apostas/montar/%3FP{categoria[0:len(categoria)-1]}%20%5B-a-zA-Z0-9_%5D+)%5CZ/?status=1')
+    for aux in tudo:
+        if '' == aux['id_nomeado']:
+            return redirect(f'/apostas/montar/%3FP{categoria[0:len(categoria)-1]}%20%5B-a-zA-Z0-9_%5D+)%5CZ/?status=1')
     
 
     for j in tudo:
-        if int(j) < 1 or int(j) > qnt:
+        if int(j['id_nomeado']) < 1 or int(j['id_nomeado']) > qnt:
             return redirect(f'/apostas/montar/%3FP{categoria[0:len(categoria)-1]}%20%5B-a-zA-Z0-9_%5D+)%5CZ/?status=2')
     
 
     for k in range(1, qnt+1):
         achou = 0
         for j in tudo:
-            if int(j) == k:
+            if int(j['id_nomeado']) == k:
                 achou += 1
             
             if achou == 2:
@@ -186,7 +159,7 @@ def verificar(request, categoria):
 
 
     if retorno == None:
-        request.session['aposta'] = {'categoria': categoria, 'posicoes':tudo, 'qnt': qnt}
+        request.session['aposta'] = {'categoria': categoria, 'posicoes':tudo, 'qnt': qnt, 'valor': float(valor)}
         return redirect(f'/apostas/finalizar/')
 
 def finalizar(request):
@@ -221,7 +194,7 @@ def finalizar(request):
         busca = True
         k = 0
         while( busca == True and k < int(aposta['qnt'])):
-            if int(aposta['posicoes'][k]) == j:
+            if int(aposta['posicoes'][k]['posicao']) == j:
                 ordenados.append(novo[k])
                 busca = False
             k += 1
@@ -236,6 +209,47 @@ def finalizar(request):
         }
     )
 
+def organizaAposta(indicados, aposta):
+    organizado = []
+    for i in aposta['posicoes']:
+        organizado.append( indicados[ int(i['id_nomeado']) - 1 ]['Nomeacao'] )
+    return organizado
 
+def salvaAposta(request):
+    status = request.GET.get('status')
+    id_usuario = request.session.get('usuario')
+    indicados = request.session.get('indicados')
+    aposta = [request.session.get('aposta')]
 
-    #return HttpResponse(f"categoria: {aposta['categoria']}\nposicoes: {aposta['posicoes']}\nqnt: {aposta['qnt']} ")
+    try:
+        organizacao = organizaAposta(indicados, aposta[0])
+
+        if aposta[0]['qnt'] == 5:
+            for j in range(5):
+                organizacao.append(0)
+
+        nova = Aposta(
+            id_usuario = id_usuario,
+            categoria = aposta[0]['categoria'],
+            valor = aposta[0]['valor'],
+            dataA = datetime.now(),
+            pos1 = organizacao[0],
+            pos2 = organizacao[1],
+            pos3 = organizacao[2],
+            pos4 = organizacao[3],
+            pos5 = organizacao[4],
+            pos6 = organizacao[5],
+            pos7 = organizacao[6],
+            pos8 = organizacao[7],
+            pos9 = organizacao[8],
+            pos10 = organizacao[9]
+        )
+
+    except:
+        return redirect('/apostas/finalizar/?status=1')
+    
+    
+    nova.save()
+    notificar(id_usuario, f'Aposta da categoria {aposta[0]["categoria"]} foi cadastrada com sucesso, aguarde os resultados!', 'Aposta cadastrada com sucesso!')
+    return redirect('/apostas/finalizar/?status=0')
+

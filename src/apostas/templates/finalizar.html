@@ -10,24 +10,26 @@
 
 {% block 'conteudo' %}
 
-    <!-- <p>{{aposta}}</p>
-    <p>{{indicados}}</p>
+    {% if status == '0'%}
+        <div class="alerta certo">
+            <p>Aposta cadastrada com sucesso!</p> 
+        </div>
+    {% endif %}
 
-    {% for i in indicados %}
-        <p>{{i}}</p>
 
-    {% endfor %}
+    {% if status == '1'%}
+        <div class="alerta errado">
+            <p>Houve um problema ao tentar cadastrar a aposta!</p> 
+        </div>
+    {% endif %}
 
-    <br>
-    <br>
-
-    <p>{{novo}}</p> -->
-
+    
     <div class="titulo">
         <h1>
             Finalizar Aposta
         </h1>
     </div>
+
 
     <div class="ConteudoFinalizar">
 
@@ -60,15 +62,15 @@
         {% endfor %}
 
         <div class="botoes">
-            <a href="{% url 'categorias' %}">
+            <a onclick="window.history.back()">
                 <button>Voltar</button>
             </a>
-            <a href="">
+            <a href="{% url 'salvaAposta' %}">
                 <button type="submit">Finalizar Aposta</button>
             </a>
         </div>
 
     </div>
 
-
+    
 {% endblock %}
