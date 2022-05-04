@@ -12,5 +12,6 @@ urlpatterns = [
     path('sair/', views.sair, name='sair'),
     path('mudarDados/', views.mudarDados, name='mudarDados'),
     path('alterarDados/', views.alterarDados, name='alterarDados'),
-    path('perfil/', views.perfil, name='perfil')
+    path('perfil/', views.perfil, name='perfil'),
+    path('notificacoes/', views.notificacoes, name='notificacoes')
 ]

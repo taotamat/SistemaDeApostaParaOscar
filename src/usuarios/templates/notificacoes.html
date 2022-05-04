@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Notificacoes{% endblock %} 
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notificacoes.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="titulo">
+        <h1>Notificacoes</h1>
+    </div>
+
+    <div class="todasNotis">
+        {% if notificacoes != None %}
+            <div class="barrinha"></div>
+            {% for i in notificacoes %}
+                <div class="cadaNoti">
+                    
+                    <div class="dataNoti">
+                        <p>{{i.data}}</p>
+                    </div>
+
+                    <div class="conteudoNoti">
+
+                        <div class="tituloNoti">
+                            <p>
+                                {{i.titulo}}
+                            </p> 
+                        </div>
+                    
+                        <div class="mensagemNoti">
+                            <p>
+                                {{i.mensagem}}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="barrinha"></div>
+            <div class="cadaNoti">
+                <div class="conteudoNoti">
+                    <div class="tituloNoti">
+                        <p>Você ainda não possui notificações!</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

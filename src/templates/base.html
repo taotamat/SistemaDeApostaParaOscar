@@ -52,23 +52,20 @@
 
         {% if id_user != None %}
 
-          {% if 3 == 1 %}
 
-            <span class="material-symbols-outlined notificacoes">
-              <a href="">
-                notifications
-              </a>
-            </span>
+          <span class="material-symbols-outlined notificacoes">
+            <a href="{% url 'notificacoes' %}">
+              notifications
+            </a>
+          </span>
           
-          {% else %}
 
-            <span class="material-symbols-sharp notificacoes">
-              <a href="" style="color: #FCCD30;">
-                notifications_active
-              </a>
-            </span>
-          
-          {% endif %}
+          <!-- <span class="material-symbols-sharp notificacoes">
+            <a href="" style="color: #FCCD30;">
+              notifications_active
+            </a>
+          </span>
+           -->
 
           <button class="link_usuario" onclick="Mudarestado('opcoesUser')">
             <div class="perfil" id="Perfil_header" style="background-color: #FCCD30;">

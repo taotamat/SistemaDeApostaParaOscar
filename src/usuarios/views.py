@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Usuario
+from .models import Usuario, Notificacao
 from django.shortcuts import redirect
 from hashlib import sha256
+from administrador.views import notificar, notificarTodos, busca_notifica
 
 
 def perfil(request):
@@ -62,6 +63,8 @@ def mudarDados(request):
 
 def valida_cadastro(request):
 
+    erro = 1
+
     nome = request.POST.get('nome')
     senha = request.POST.get('senha')
     email = request.POST.get('email')
@@ -79,9 +82,16 @@ def valida_cadastro(request):
             senha = sha256(senha.encode()).hexdigest()
             usuario = Usuario(nome=nome, senha=senha, email=email)
             usuario.save()
+            erro = 0
+
             retorno = redirect('/auth/cadastro/?status=0')
         except:
             retorno = redirect('/auth/cadastro/?status=4')
+
+    if erro == 0:
+        aux = list(Usuario.objects.all().filter(email=email))
+        #notificar(id_user=aux[0].id, mensagem=' ', titulo='Conta cadastrada com sucesso!')
+        busca_notifica(aux[0], ' ', f'Conta de {aux[0].nome} cadastrada com sucesso!')
 
     return retorno
 
@@ -165,8 +175,30 @@ def pegaUser(id_user):
     else:
         return todos[0]
 
-def notificar(id_user, mensagem):
-    usuario = pegaUser(id_user)
+
+def pegaNotificacoes(id_user):
+    todos = list(Notificacao.objects.all().filter(id_usuario=id_user))
+    if len(todos) == 0:
+        return None
+    else:
+        return todos
+
+def notificacoes(request):
+    
+    status = request.GET.get('status')
+    id_usuario = request.session.get('usuario')
+    n = pegaNotificacoes(id_user=id_usuario)
+
+    if n != None:
+        n = list(reversed(n))
+
+    return render(request, 'notificacoes.html', {
+        'status': status,
+        'id_user': id_usuario,
+        'notificacoes': n
+        }
+    )
+
     
 
 

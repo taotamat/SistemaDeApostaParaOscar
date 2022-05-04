@@ -1,0 +1,61 @@
+.todasNotis, .cadaNoti, .dataNoti, .conteudoNoti, .tituloNoti, .mensagemNoti {
+    display: flex;
+    
+}
+
+.todasNotis {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+
+.cadaNoti, .barrinha {
+    width: 70%;
+    /* border: 1px solid yellow; */
+    border-bottom: 1px solid #FCCD30;
+}
+
+
+.dataNoti {
+    width: 30%;
+    align-items: center;
+    /* border-right: 1px solid #FCCD30; */
+}
+
+.dataNoti p {
+    font-size: 15pt;
+    margin-left: 25px;
+}
+
+.conteudoNoti {
+    width: 100%;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.conteudoNoti p {
+    margin-left: 30px;
+}
+
+
+.tituloNoti {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    /* border: 1px solid rgb(255, 157, 0); */
+    font-size: 18pt;
+}
+
+.mensagemNoti {
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    /* border: 1px solid blueviolet; */
+    color: rgba(255, 255, 255, 0.7);
+}
+
