@@ -135,3 +135,49 @@
     margin-inline-end: 0px;
     margin-top: 0;
 }
+
+.Info {
+    height: 360px;
+    width: 100%;
+    border: 1px solid;
+}
+.Info h2{
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+}
+.Info p{
+    font-size: 15pt;
+    float: left;
+    text-align: justify;
+    margin: 0px;
+    width: 50%;
+    padding: 0 0 0 4em;
+}
+.Info figure{
+    float: right;
+    margin: 0;
+    padding: 0 10em 0 0;
+    position: relative;
+    top: -38%;
+    font-size: 12px;
+    text-align: center;
+}
+.regras{
+    height: 200px;
+    width: 100%;
+    border: 1px solid yellow;
+}
+.regras h2{
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 10%;
+}
+.regras p{
+    font-size: 15pt;
+    text-align: justify;
+    margin: 0px;
+    padding: 0 4em 0 4em;
+}

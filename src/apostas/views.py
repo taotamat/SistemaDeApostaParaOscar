@@ -8,6 +8,7 @@ from .models import Resultado, Aposta
 import random
 from datetime import datetime
 from administrador.views import notificar, notificarTodos, busca_notifica
+import math
 
 # Create your views here.
 def categorias(request):
@@ -162,6 +163,24 @@ def verificar(request, categoria):
         request.session['aposta'] = {'categoria': categoria, 'posicoes':tudo, 'qnt': qnt, 'valor': float(valor)}
         return redirect(f'/apostas/finalizar/')
 
+def pegaPremio(porcentagem, valor):
+    premio = []
+
+    if porcentagem > 0:
+        premio.append( round((abs(porcentagem) / 100) * valor, 2) )
+        premio.append( round(float(0), 2) )
+
+    elif porcentagem < 0:
+        premio.append( round(float(0), 2) )
+        premio.append(round((abs(porcentagem) / 100) * valor, 2))
+
+    else:
+        premio.append( round(float(0), 2) )
+        premio.append( round(float(0), 2) )
+
+    return premio
+
+
 def finalizar(request):
     status = request.GET.get('status')
     aposta = request.session.get('aposta')
@@ -190,12 +209,18 @@ def finalizar(request):
 
     ordenados = []
 
+    valor = aposta['valor']
+    porcentagens = [90, 50, 0, -50, -90] if aposta['qnt'] == 5 else [90, 60, 40, 20, 0, 0, -20, -40, -60, -90]
+
     for j in range(1, int(aposta['qnt'])+1):
         busca = True
         k = 0
         while( busca == True and k < int(aposta['qnt'])):
             if int(aposta['posicoes'][k]['posicao']) == j:
                 ordenados.append(novo[k])
+                # (-20) / 100 * 50
+                # """ += ( (porcentagens[k] / 100) * float(aposta['valor']) ) """
+                ordenados[k]['premio'] = pegaPremio(porcentagens[k], valor) 
                 busca = False
             k += 1
 

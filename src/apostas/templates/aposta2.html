@@ -40,6 +40,14 @@
 
     <form class="formulario" method="POST" action="{% url 'verificar' categoria.0 %}"> {% csrf_token %}
 
+        <div class="ValorA">
+            <label>Digite o valor a apostar:</label>
+            <div>
+                <p>R$</p> 
+                <input type="number" value="0.00" name="valor" step="any">
+            </div>
+        </div>
+
         <div class="inds">
             {% for i in indicados %}
                 
@@ -66,7 +74,7 @@
             {% endfor %}
         </div>
 
-        <input class="inputs" type="number" value="0" name="valor">
+        
 
         <input class="enviar" type="submit" value="Enviar">
 

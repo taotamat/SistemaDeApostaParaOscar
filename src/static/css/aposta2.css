@@ -113,3 +113,45 @@ form {
     color: #FCCD30;
     border: 1px solid #FCCD30;
 }
+
+.ValorA {
+    display: flex;
+    /* border: 1px solid orange; */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 75px;
+    flex-direction: column;
+}
+
+.ValorA label {
+    font-size: 18pt;
+    margin-bottom: 5px;
+}
+
+.ValorA div {
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ValorA div p {
+    font-size: 25pt;
+    margin-right: 15px;
+}
+
+.ValorA div input {
+    width: 250px;
+    height: 60px;
+    text-align: center;
+    border: 1px solid white;
+    background-color: #141414;
+    color: #FCCD30;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 30pt;
+}
+
+

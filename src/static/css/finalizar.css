@@ -22,12 +22,16 @@
 }
 
 .Indicado {
-    width: 90%;
+    width: 80%;
     /* border: 1px solid red; */
     display: flex;
     border-bottom: 1px solid white;
 }
 
+.Imagem {
+    width: 135px;
+    /* border: 1px solid #FCCD30; */
+}
 
 .Imagem img {
     height: 200px;
@@ -36,7 +40,10 @@
 .Infor {
     display: flex;
     align-items: center;
-    margin-left: 30px;
+    margin-left: 0;
+    /* border: 1px solid orange; */
+    width: 50%;
+    padding-left: 1em;
 }
 
 .Infor p {
@@ -54,3 +61,59 @@
 .Pos h1 {
     font-size: 72px;
 }
+
+
+.colunas{
+    width: 80%;
+    border-top: 1px solid #FCCD30;
+    border-bottom: 1px solid #ffffff;
+    font-size: 25pt;
+    display: flex;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+/* .colunas div {
+    border: 1px solid blue;
+}
+ */
+.valorApostado {
+    font-size: 18pt;
+    display: flex;
+    margin-bottom: 75px;
+    align-items: center;
+}
+
+
+.colunas .posicao {
+    width: 150px;
+}
+
+.colunas .indicadoC {
+    width: 60%;
+}
+
+.colunas .ganha, .colunas .perde {
+    width: 15%;
+}
+
+.valores {
+    width: 30%;
+    /* border: 1px solid blueviolet; */
+    display: flex;
+}
+
+.valores div {
+    display: flex;
+    /* border: 1px solid brown; */
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+}
+
+.premioV {
+    font-size: 25pt;
+    margin-right: 5px;
+}
+
