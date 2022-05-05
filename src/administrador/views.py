@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Administrador
 from django.shortcuts import redirect
-from filmes.views import CATEGORIAS, pegaFilme, pegaTodosIndicados
+from filmes.views import CATEGORIAS, pegaFilme, pegaTodosIndicados, pegaNomeacaoId
 from filmes.models import Filme, Banner, Elenco, Nomination
 from apostas.models import Aposta, Resultado
 from usuarios.models import Notificacao, Usuario
@@ -58,6 +58,10 @@ def cadResultados(request):
 
     cats = []
     ainda = []
+
+    if len(aux) == 23:
+        # Todas as categorias já foram cadastradas!
+        return redirect('/administrador/cadResultados/?status=1')
     
     if len(aux) != 0:
         for i in aux:
@@ -66,8 +70,8 @@ def cadResultados(request):
     
     k = 0
     for j in indicados:
-        if len(cats) != 0 and (taCats(j['Categoria'], cats) == True):
-            ainda.append(j['oi'])
+        if len(cats) == 0 or (taCats(j['Categoria'], cats) != True):
+            ainda.append(j)
             
         
     status = request.GET.get('status')
@@ -75,7 +79,7 @@ def cadResultados(request):
     return render(request, 'cadResultados.html', {
         'status': status,
         'id_admin': id_a,
-        'indicados': indicados
+        'indicados': ainda
         }
     )
     
@@ -96,48 +100,42 @@ def valida_resultados(request):
     Todas = []
 
     for i in CATEGORIAS:
-        Todas.append( request.POST.get(f'{i[0]}') )
-
-    return HttpResponse(f'{Todas}')
-
-    todos = list(Nomination.objects.all())
-    tam = len(todos)
-    tudo = []
-
-    for i in range(tam):
-        if str(request.POST.get(f'{i}')) == 'True':
-            tudo.append(
+        id_nomeado = request.POST.get(f'{i[0]}')
+        if id_nomeado != None:
+            Todas.append(
                 {
-                    'nomeacao':todos[i],
-                    'filme': pegaFilme(todos[i].id_filme)
+                    'categoria': i,
+                    'id_indicado': request.POST.get(f'{i[0]}')
                 }
             )
+    
+    salvar_resultados(Todas)
 
-    #return HttpResponse(f'Olá Mundo! + {filme} + {tam} + {tudo}')
+    #return HttpResponse(Todas)
+
+    selecionados = []
+    for j in Todas:
+        n = pegaNomeacaoId(int(j['id_indicado']))[0] 
+        selecionados.append(
+            {
+                'nomeacao': n,
+                'filme': pegaFilme(n.id_filme)
+            }
+        )
 
     id_a = request.session.get('administrador')
     status = request.GET.get('status')
-
-    #self.frequencias = sorted(self.frequencias, key=lambda x: x.frequencia)
-
-    tudo = sorted( tudo, key=lambda x: x['nomeacao'].id )
-
-    salvar_resultados(tudo)
-
-    aux = list(Resultado.objects.all())
-    if len(aux) == 23:
-        notificarTodos(mensagem='Venha comparar seus acertos.', titulo='Resultados cadastrados!')
-
     return render(request, 'resultados_salvos.html', {
         'status': status,
         'id_admin': id_a,
-        'selecionados': tudo
+        'selecionados': selecionados
         }
     )
 
 def salvar_resultados(tudo):
     for i in tudo:
-        r = Resultado(categoria=i['nomeacao'].categoria, id_indicado=i['nomeacao'])
+        n = pegaNomeacaoId(int(i['id_indicado']))
+        r = Resultado(categoria=i['categoria'][0], id_indicado=n[0])
         r.save()
 
 def sairA(request):
@@ -183,4 +181,82 @@ def notificaA(request):
         }
     )
 
+def editaResults(request):
+    
 
+    indicados = pegaTodosIndicados()
+    aux = list(Resultado.objects.all())
+    
+    qnt = len(aux)
+
+    cats = []
+    ainda = []
+
+    if qnt == 23:
+        # Todas as categorias já foram cadastradas!
+        return redirect('/administrador/editaResults/?status=1')
+    
+    if qnt != 0:
+        for i in aux:
+            # For q vai me dizer quais categorias já possuem resultados
+            cats.append(i.categoria)
+    
+    k = 0
+    for j in indicados:
+        if len(cats) != 0 and (taCats(j['Categoria'], cats) == True):
+            ainda.append(j)
+    
+
+    status = request.GET.get('status')
+    id_a = request.session.get('administrador')
+    return render(request, 'ediResultados.html', {
+        'status': status,
+        'id_admin': id_a,
+        'qnt': qnt,
+        'indicados': ainda
+        }
+    )
+
+def valida_edicao_results(request):
+    Todas = []
+
+    for i in CATEGORIAS:
+        id_nomeado = request.POST.get(f'{i[0]}')
+        if id_nomeado != None:
+            Todas.append(
+                {
+                    'categoria': i,
+                    'id_indicado': request.POST.get(f'{i[0]}')
+                }
+            )
+    
+    salvar_edicao_resultados(Todas)
+
+    selecionados = []
+    for j in Todas:
+        n = pegaNomeacaoId(int(j['id_indicado']))[0] 
+        selecionados.append(
+            {
+                'nomeacao': n,
+                'filme': pegaFilme(n.id_filme)
+            }
+        )
+    
+    id_a = request.session.get('administrador')
+    status = request.GET.get('status')
+    return render(request, 'resultados_salvos.html', {
+        'status': status,
+        'id_admin': id_a,
+        'selecionados': selecionados
+        }
+    )
+    
+    
+
+def salvar_edicao_resultados(tudo):
+    for i in tudo:
+        n = pegaNomeacaoId(int(i['id_indicado']))[0]
+        salvo = list(Resultado.objects.all().filter(categoria=i['categoria'][0]))[0]
+        salvo.id_usuario = n
+        salvo.save()
+        #r.save()
