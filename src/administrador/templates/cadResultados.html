@@ -28,9 +28,8 @@
 
                         {% if forloop.counter == 1 %}
                             <option disabled selected value> -- select an option -- </option>
-                        {% else %}
-                            <option value="{{j.Nomeacao.id}}">{{j.Nomeacao.responsavel}} by {{j.Filme.nome}}</option>
                         {% endif %}
+                        <option value="{{j.Nomeacao.id}}">{{j.Nomeacao.responsavel}} by {{j.Filme.nome}}</option>
 
                     {% endfor %}
                 </select>
