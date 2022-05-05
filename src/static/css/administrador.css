@@ -99,3 +99,73 @@
 }
 
 
+/* ---------------------------------------------- */
+
+.contNoti, .formulario_noti, .sel_user, .titulo_noti, .mensagem_noti {
+    /* border: 1px solid yellow; */
+    display: flex;
+}
+
+.contNoti, .formulario_noti, .sel_user, .titulo_noti, .mensagem_noti {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario_noti {
+    width: 60%;
+    flex-direction: column;
+    font-size: 15pt;
+}
+
+.formulario_noti label {
+    margin-bottom: 10px;
+}
+
+.titulo_noti input, .mensagem_noti textarea, .sel_user select {
+    background-color: #141414;
+    color: white;
+    border: 1px solid white;
+    width: 60%;
+    height: 50px;
+    font-size: 15pt;
+    font-family: 'Varela Round', sans-serif;
+    
+}
+
+.formulario_noti div {
+    margin-bottom: 50px;
+    width: 100%;
+    
+}
+
+.sel_user { 
+    width: 100%;
+}
+
+.sel_user select {
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mensagem_noti textarea{
+    height: 175px;
+    overflow-y: scroll;
+    resize: none;
+}
+
+.mensagem_noti textarea::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgb(20, 20, 20); 
+}
+
+.mensagem_noti textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    width: 12px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #FCCD30; }
+
+.botoesNoti {
+    flex-direction: row;
+}

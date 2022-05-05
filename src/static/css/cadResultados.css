@@ -24,6 +24,31 @@
     flex-direction: column;
 }
 
+.cadCate label {
+    font-size: 18pt;
+    margin-bottom: 10px;
+}
+
+
+.cadCate select {
+    background-color: #141414;
+    border: 1px solid white;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    font-size: 15pt;
+    width: 50%;
+    text-align: center;
+    height: 48px;
+    cursor: pointer;
+}
+
+.cadCate select * {
+    cursor: pointer;
+}
+
+
+
+
 .lista {
     width: 100%;
     font-size: 18pt;

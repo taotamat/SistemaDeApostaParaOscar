@@ -17,16 +17,24 @@
     <form class="formulario" method="POST" action="{% url 'valida_resultados' %}"> {% csrf_token %}
         {% for i in indicados %}
             <div class="cadCate">
+
                 <div class="cate">
                     <h2>{{i.Categoria.1}}</h2>
                 </div>
-                {% for j in i.Indicados %}
-                    <div class="lista">
-                        <input name="{{j.Nomeacao.id}}" class="inputs" type="checkbox" value="True">
-                        <label>{{j.Nomeacao.responsavel}} by {{j.Filme.nome}}</label>
-                    </div>
-                    
-                {% endfor %}
+
+                <label>Selecione o vencedor desta categoria:</label>
+                <select name="{{i.Categoria.0}}" class="{{i.Categoria.0}}" onchange="marcarSelecionado('{{i.Categoria.0}}')">
+                    {% for j in i.Indicados %}
+
+                        {% if forloop.counter == 1 %}
+                            <option disabled selected value> -- select an option -- </option>
+                        {% else %}
+                            <option value="{{j.Nomeacao.id}}">{{j.Nomeacao.responsavel}} by {{j.Filme.nome}}</option>
+                        {% endif %}
+
+                    {% endfor %}
+                </select>
+                
             </div>
         {% endfor %}
 
@@ -48,8 +56,7 @@
         </a> 
     </div>
 
-    <p>Hello World!!!</p>
-    <p>{{indicados}}</p>
-
+    <!-- <p>Hello World!!!</p>
+    <p>{{indicados}}</p> -->
 
 {% endblock %}

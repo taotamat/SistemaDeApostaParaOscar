@@ -15,31 +15,36 @@
 
     <div class="contNoti">
 
-        <form class="formulario_noti">
-
+        <form class="formulario_noti" method="POST" action="{% url 'valida_login' %}"> {% csrf_token %}
             <div class="sel_user">
-                <label>Selecione o usuário:</label>
+                <label>Selecione o usuário(s) que deseja notificar:</label>
                 <select name="selecionado">
-                    <option>Valor 1</option>
-                    <option>Valor 2</option>
-                    <option>Valor 3</option>
-                    <option>Valor 4</option>
+                    {% if usuarios != None %}
+                        {% for i in usuarios %}
+                            <option value="{{i.id_usuario}}">{{i.nome}}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option>Não há usuários cadastrados.</option>
+                    {% endif %}
                 </select>
             </div>
 
             <div class="titulo_noti">
                 <label>Digite o título da notificação:</label>
-                <input class="inputNoti" type="text" maxlength="100">
+                <input name="titulo" class="inputNoti" type="text" maxlength="100" autocomplete="off">
             </div>
 
             <div class="mensagem_noti">
                 <label>Digite o título da notificação:</label>
-                <input class="inputNoti" type="text" value=" ">
+                <textarea name="mensagem" wrap="hard"></textarea>
             </div>
 
 
-            <div class="centralizados">
+            <div class="centralizados botoesNoti"> 
                 <input class="btn btn-info btn-lg" type="submit" value="Enviar">
+                <a href="{% url 'homeA' %}">
+                    Voltar
+                </a>
             </div>
 
         </form>
