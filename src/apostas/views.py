@@ -231,13 +231,11 @@ def finalizar(request):
 
     for j in range(1, int(aposta['qnt'])+1):
         busca = True
-        k = 0
-        while( busca == True and k < int(aposta['qnt'])):
-            if int(aposta['posicoes'][k]['posicao']) == j:
+        k = 0        
+        for i in range( int(aposta['qnt']) ):
+            if int(aposta['posicoes'][k]['id_nomeado']) == j:
                 ordenados.append(novo[k])
-                # (-20) / 100 * 50
-                # """ += ( (porcentagens[k] / 100) * float(aposta['valor']) ) """
-                ordenados[k]['premio'] = pegaPremio(porcentagens[k], valor) 
+                ordenados[len(ordenados)-1]['premio'] = pegaPremio(porcentagens[k], valor) 
                 busca = False
             k += 1
 
