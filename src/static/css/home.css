@@ -166,7 +166,7 @@
 .regras{
     height: 200px;
     width: 100%;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
 }
 .regras h2{
     font-size: 2.5em;

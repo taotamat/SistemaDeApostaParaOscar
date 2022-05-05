@@ -5,6 +5,18 @@
 
 */
 
+.yellow{
+    color: #FCCD30;
+}
+
+.green{
+    color: #A7AB42;
+}
+
+.red{
+    color: #fc5922;
+}
+
 
 body {
     background-color: rgb(20, 20, 20);

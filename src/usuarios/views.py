@@ -91,7 +91,7 @@ def valida_cadastro(request):
     if erro == 0:
         aux = list(Usuario.objects.all().filter(email=email))
         #notificar(id_user=aux[0].id, mensagem=' ', titulo='Conta cadastrada com sucesso!')
-        busca_notifica(aux[0], ' ', f'Conta de {aux[0].nome} cadastrada com sucesso!')
+        busca_notifica(aux[0], ' ', f'Conta de {aux[0].nome} criada com sucesso!')
 
     return retorno
 
@@ -175,7 +175,6 @@ def pegaUser(id_user):
     else:
         return todos[0]
 
-
 def pegaNotificacoes(id_user):
     todos = list(Notificacao.objects.all().filter(id_usuario=id_user))
     if len(todos) == 0:
@@ -198,11 +197,5 @@ def notificacoes(request):
         'notificacoes': n
         }
     )
-
-    
-
-
-
-
 
 # ---------#---------#------- #-

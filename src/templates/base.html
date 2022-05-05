@@ -9,12 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap" rel="stylesheet">
-
-<!--     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
- -->
- <!--     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
- -->    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap" rel="stylesheet">  
     {% block 'head' %} {% endblock %}
   </head>
   <body>
@@ -52,20 +47,11 @@
 
         {% if id_user != None %}
 
-
           <span class="material-symbols-outlined notificacoes">
             <a href="{% url 'notificacoes' %}">
               notifications
             </a>
           </span>
-          
-
-          <!-- <span class="material-symbols-sharp notificacoes">
-            <a href="" style="color: #FCCD30;">
-              notifications_active
-            </a>
-          </span>
-           -->
 
           <button class="link_usuario" onclick="Mudarestado('opcoesUser')">
             <div class="perfil" id="Perfil_header" style="background-color: #FCCD30;">
@@ -75,35 +61,25 @@
             </div>
           </button>
 
-
-          <div id="opcoesUser" style="display:none">
-            
+          <div id="opcoesUser" style="display:none">            
             <div class="aux_opcoes">
               <div class="conteudo_opcoesUser">
                 <a href="{% url 'perfil' %}" class="opcoesUSER">
                   <h1>Perfil</h1> 
                 </a>
-      
-      
+
                 <a href="{% url 'mudarDados' %}"  class="opcoesUSER">
                   <h1>Alterar Dados</h1> 
                 </a>
-    
+
                 <a href="{% url 'sair' %}"  class="opcoesUSER">
                   <h1>Sair</h1> 
                 </a>
 
-
               </div>
             </div>
           {% endif %}
-          
-
-          
-        
         </div>
-
-
     </header>
 
     <div class="padrao conteudo">
@@ -114,7 +90,7 @@
     <footer class="padrao rodape">
       
       <div class="primeiro">
-
+        
         <div class="padrao_rodape sobre">
           <h2>SOBRE</h2>
           <p>O sistema de apostas para o Oscar é um software responsável pela divulgação das listas por categorias de diversos segmentos selecionados à premiação do Oscar, como também os registros e gerenciamentos de apostas para premiação. O principal objetivo do sistema é registrar e fazer o controle das apostas entre os usuários do sistema, além de cadastrar as categorias e divulgar a lista selecionada da premiação. O sistema possui como principais públicos alvos:  os usuários (apostadores e administradores do sistema).</p>
@@ -152,7 +128,11 @@
 
       <div class="linha">
         <div>
-          <p>Sistema de Aposta para o Oscar - 2022</p>   
+          <p>
+            <a style="text-decoration: underline;" target="_blank" href="https://github.com/taotamat/SistemaDeApostaParaOscar">
+              Sistema de Aposta para o Oscar - 2022
+            </a>
+          </p>   
         </div>
       </div>
 

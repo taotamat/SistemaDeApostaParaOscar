@@ -29,6 +29,12 @@
             </div>
         {% endif %}
 
+        {% if status == '4'%}
+            <div class="alerta errado">
+                <p>Os resultados já sairam, por isso não são mais aceitos novas apostas!</p> 
+            </div>
+        {% endif %}
+
     </div>
 
     
@@ -75,9 +81,15 @@
         </div>
 
         
-
-        <input class="enviar" type="submit" value="Enviar">
-
+        {% if status != '4' %}
+            <input class="enviar" type="submit" value="Enviar">
+        {% else %}
+            <div class="perEnc">
+                <p>
+                    Periodo de apostas foi encerrado!
+                </p>
+            </div>
+        {% endif %}
     </form>
 
     <!-- <p>{{indicados}}</p> -->

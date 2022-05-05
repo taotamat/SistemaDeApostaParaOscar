@@ -23,6 +23,11 @@
         </div>
     {% endif %}
 
+    {% if status == '2'%}
+        <div class="alerta errado">
+            <p>Você já fez uma aposta desta categoria!</p> 
+        </div>
+    {% endif %}
     
     <div class="titulo">
         <h1>
@@ -35,7 +40,7 @@
 
         <div class="valorApostado">
             <p>Valor apostado:</p>
-            <p style="margin-left: 15px; margin-right: 15px; color: #FCCD30; font-size: 23pt;">{{aposta.valor}}</p>
+            <p style="margin-left: 15px; margin-right: 15px; color: #FCCD30; font-size: 35pt;">{{aposta.valor}}</p>
             <p>R$</p>
         </div>
 
@@ -67,7 +72,7 @@
                         {{forloop.counter}}º
                     </h1>
                 </div>
-
+                
                 <div class="Imagem">
                     <img src="{{i.imagem}}">
                 </div>
@@ -88,12 +93,20 @@
                 <div class="valores">
 
                     <div class="valorGanho">
-                        <p class="premioV">{{i.premio.0}}</p>
+                        {% if i.premio.0 > 0 %}
+                            <p style="color: #A7AB42;" class="premioV">+{{i.premio.0}}</p>
+                        {% else %}
+                            <p class="premioV">{{i.premio.0}}</p>
+                        {% endif %}
                         <p>R$</p>
                     </div>
 
                     <div class="valorPerdido">
-                        <p class="premioV">{{i.premio.1}}</p>
+                        {% if i.premio.1 > 0 %}
+                            <p style="color: #FC5922;" class="premioV">-{{i.premio.1}}</p>
+                        {% else %}
+                            <p class="premioV">{{i.premio.1}}</p>
+                        {% endif %}
                         <p>R$</p>
                     </div>
                 </div>
@@ -102,15 +115,20 @@
         {% endfor %}
 
         <div class="botoes">
-            <a onclick="window.history.back()">
+            <a href="{% url 'categorias' %}">
                 <button>Voltar</button>
             </a>
-            <a href="{% url 'salvaAposta' %}">
-                <button type="submit">Finalizar Aposta</button>
-            </a>
+
+            {% if status != None %}
+                <a style="display: none;"></a>
+            {% else %}
+                <a href="{% url 'salvaAposta' %}">
+                    <button type="submit">Finalizar Aposta</button>
+                </a>
+            {% endif %}
+
         </div>
 
     </div>
-
     
 {% endblock %}

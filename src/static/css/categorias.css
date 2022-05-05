@@ -85,4 +85,9 @@
     text-align: center;
 }
 
-
+.apostaEnc {
+    display: flex;
+    justify-content: center;
+    font-size: 18pt;
+    /* border: 1px solid yellow; */
+}

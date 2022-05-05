@@ -59,10 +59,11 @@
 .botoes{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 2em 0;
     width: 900px;
     height: 100%;
+    justify-content: center;
 }
 
 /*
@@ -90,7 +91,7 @@
 
 .botoes button{
     cursor: pointer;
-    height: 50px;
+    /* height: 50px; */
     background-color: #141414;
     border: 1px solid #ffffff;
     color:rgb(255, 255, 255);
@@ -100,6 +101,7 @@
     font-family: 'Varela Round', sans-serif;
     text-align: center;
     padding: 10px;
+    margin-right: 25px;
 }
 
 .botoes button:hover{

@@ -154,4 +154,10 @@ form {
     font-size: 30pt;
 }
 
+.perEnc {
+    width: 30%;
+    border: 1px solid #fc5922;
+    font-size: 18pt;
+    text-align: center;
+}
 

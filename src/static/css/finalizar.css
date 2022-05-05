@@ -117,3 +117,25 @@
     margin-right: 5px;
 }
 
+
+.alerta {
+    width: 100%;
+    height:150px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+}
+
+.alerta p {
+    margin-left: 150px;
+    font-size: 18pt;
+}
+
+.errado {
+    color: #FC5922;
+}
+
+.certo {
+    color: #A7AB42;
+}
+

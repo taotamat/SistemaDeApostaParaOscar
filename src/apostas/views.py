@@ -14,6 +14,12 @@ import math
 def categorias(request):
     status = request.GET.get('status')
     id_usuario = request.session.get('usuario')
+
+    aux = list(Resultado.objects.all())
+
+    if len(aux) > 0:
+        status = '1'
+
     return render(request, 'categorias.html', {
         'status': status, 
         'id_user':id_usuario,
@@ -78,9 +84,15 @@ def montar(request, categoria):
 
     c['Indicados'] = acrescentaIMG(c['Indicados'], categoria)
     
+    aux = list(Resultado.objects.all())
+
+    if len(aux) > 0:
+        status = '4'
+
     #request.session['indicados'] = [ i['Nomeacao'].id for i in c['Indicados'] ]
 
     request.session['indicados'] = ajustaSessionIndicados(c['Indicados'])    
+
 
     return render(request, 'aposta2.html', {
         'status': status, 
@@ -124,6 +136,12 @@ def resultados(request):
     )
 
 def verificar(request, categoria):
+
+    aux = list(Resultado.objects.all())
+
+    if len(aux) > 0:
+        return redirect(f'/apostas/montar/%3FP{categoria[0:len(categoria)-1]}%20%5B-a-zA-Z0-9_%5D+)%5CZ/')
+
     qnt = 10 if categoria == 'Best Picture ' else 5
 
     valor = request.POST.get('valor')
@@ -180,7 +198,6 @@ def pegaPremio(porcentagem, valor):
 
     return premio
 
-
 def finalizar(request):
     status = request.GET.get('status')
     aposta = request.session.get('aposta')
@@ -224,7 +241,6 @@ def finalizar(request):
                 busca = False
             k += 1
 
-
     return render(request, 'finalizar.html', {
         'status': status, 
         'id_user': id_usuario,
@@ -245,6 +261,11 @@ def salvaAposta(request):
     id_usuario = request.session.get('usuario')
     indicados = request.session.get('indicados')
     aposta = [request.session.get('aposta')]
+
+    aux = list(Aposta.objects.all().filter(id_usuario=id_usuario).filter(categoria=aposta[0]['categoria']))   
+
+    if len(aux) > 0:
+        return redirect('/apostas/finalizar/?status=2')
 
     try:
         organizacao = organizaAposta(indicados, aposta[0])
@@ -277,4 +298,6 @@ def salvaAposta(request):
     nova.save()
     notificar(id_usuario, f'Aposta da categoria {aposta[0]["categoria"]} foi cadastrada com sucesso, aguarde os resultados!', 'Aposta cadastrada com sucesso!')
     return redirect('/apostas/finalizar/?status=0')
+
+
 

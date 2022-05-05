@@ -18,6 +18,12 @@
         </div>
     </div>
 
+    {% if status == '1' %}
+        <div class="apostaEnc">
+            <p>Os resultados já sairam, por isso não são mais aceitos novas apostas!</p>
+        </div>
+    {% endif %}
+
     <div class="TodasCat">
         {% for i in categoriasTodas %}
             <div class="UmaCat">
