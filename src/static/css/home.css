@@ -47,16 +47,23 @@
     margin-bottom: 7em;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
 }
 
 .textoCredito div {
     padding-top: 2em;
     padding-bottom: 2em;
-    width: 60%;
-    /* border: 1px solid red; */
+}
+
+.paragrafo{
     display: flex;
-    justify-content: center;
+    /* border: 1px solid red; */
+    width: 40%;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .textoCredito p {
@@ -65,7 +72,7 @@
     
 }
 
-.textoCredito img {
+.logo_tmdb {
     height: 250px;
     margin-top: 2em;
     margin-bottom: 2em;
@@ -79,6 +86,27 @@
     text-decoration: underline;
     color: #01b4e4;
 }
+
+.logo_oscar {
+    width: 250px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.paragrafo ul {
+    /* border: 1px solid red; */
+    width: 30%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    float: left;
+}
+
+.paragrafo li {
+    font-size: 15pt;
+    margin-bottom: 10px;
+}
+
 
 /* ------------------------------------------ */
 
@@ -135,6 +163,8 @@
     margin-inline-end: 0px;
     margin-top: 0;
 }
+
+/* ------------------------------------------ */
 
 .Info {
     height: 360px;

@@ -13,15 +13,33 @@
         <h1>Notificar Usuários</h1>
     </div>
 
+
+
     <div class="contNoti">
 
-        <form class="formulario_noti" method="POST" action="{% url 'valida_login' %}"> {% csrf_token %}
+        {% if status == '1' %}
+            <div class="alerta errado">
+                <p>Os campos titulo e usuários devem ser preenchidos!</p> 
+            </div>
+
+        {% endif %}
+
+        {% if status == '0' %}
+            <div class="alerta certo">
+                <p>Notificação enviada com sucesso!</p> 
+            </div>
+        {% endif %}
+
+        <form class="formulario_noti" method="POST" action="{% url 'valida_notificacao' %}"> {% csrf_token %}
             <div class="sel_user">
                 <label>Selecione o usuário(s) que deseja notificar:</label>
                 <select name="selecionado">
                     {% if usuarios != None %}
                         {% for i in usuarios %}
-                            <option value="{{i.id_usuario}}">{{i.nome}}</option>
+                            {% if forloop.counter == 1 %}
+                                <option disabled selected value> -- select o usuário -- </option>
+                            {% endif %}
+                            <option value="{{i.id_user}}">{{i.nome}}</option>
                         {% endfor %}
                     {% else %}
                         <option>Não há usuários cadastrados.</option>
@@ -48,11 +66,12 @@
             </div>
 
         </form>
-
+        
 
     </div>
     
 
+    <p style="margin-bottom: 300px;">{{usuarios}}</p>
 
 
 

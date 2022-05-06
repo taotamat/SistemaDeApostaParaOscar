@@ -23,15 +23,19 @@
     {% if temResultados > 0 %}
         <div class="placar">
             <p>Você acertou</p>
-            <h1 style="color:rgba(252, 205, 48, 1);">X</h1>
-            <p>categorias.</p>
+            <h1 style="color:rgba(252, 205, 48, 1);">{{placar.catAcertadas}}</h1>
+            {% if placar.placar == 1 %}
+                <p>categoria.</p>
+            {% else %}
+                <p>categorias.</p>
+            {% endif %}
         </div>
 
         <div class="TodasCatRes">
 
             {% for i in resultadosL %}
                 <div class="UmaCategoria">
-                    <a>
+                    <a href="{% url 'filme' i.filme.nome %}">
                        <div class="imagemResult">
                             {% if i.ator == 1 %}
                                 <img src="{{i.indicado.imagem}}">
@@ -50,13 +54,17 @@
                     
                 </div>
             {% endfor %}
-
-            
         </div>
+
     {% else %}
+
         <div class="TodasCatRes">
             <p style="font-size: 22px;">Os resultados ainda não sairam. Por favor, aguarde novas informações.</p>
         </div>
+    
     {% endif %}
+
+
+    <!-- <p>{{resultadosL}}</p> -->
 
 {% endblock %}

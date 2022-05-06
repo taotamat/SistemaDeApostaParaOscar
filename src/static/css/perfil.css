@@ -1,0 +1,57 @@
+.Placar, .campo, .total, .tituloCampo {
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+.centro, .campo, .total {
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Placar {
+    margin-top: 100px;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 0;/*  *//* border: 1px solid red; */
+    margin-bottom: 200px;
+}
+
+.campo {
+    width: 50%;
+    text-align: right;
+    /* border: 1px solid blue; */
+    border-bottom: 1px solid #FCCD30;
+}
+
+.tituloCampo {
+    width: 40%;
+    height: 100px;
+    align-items: center;
+    justify-content: right;
+    /* border: 1px solid rgb(199, 78, 78); */
+}
+
+.tituloCampo h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 300;
+}
+
+.campo .total p {
+    margin-right: 15px;
+    font-size: 15pt;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.campo .total h1 {
+    font-size: 30pt;
+    margin-right: 10px;
+    
+}
+
+.total {
+    width: 60%;
+}
+
+
+

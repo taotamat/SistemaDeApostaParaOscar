@@ -10,28 +10,9 @@
 
 {% block 'conteudo' %}
 
-    {% if status == '0'%}
-        <div class="alerta certo">
-            <p>Aposta cadastrada com sucesso!</p> 
-        </div>
-    {% endif %}
-
-
-    {% if status == '1'%}
-        <div class="alerta errado">
-            <p>Houve um problema ao tentar cadastrar a aposta!</p> 
-        </div>
-    {% endif %}
-
-    {% if status == '2'%}
-        <div class="alerta errado">
-            <p>Você já fez uma aposta desta categoria!</p> 
-        </div>
-    {% endif %}
-    
     <div class="titulo">
         <h1>
-            Salvar aposta?
+            Você já realizou a aposta!
         </h1>
     </div>
 
@@ -64,7 +45,7 @@
 
         </div>
 
-        {% for i in indicados %}
+        {% for i in ranking %}
             <div class="Indicado">
 
                 <div class="Pos">
@@ -74,7 +55,12 @@
                 </div>
                 
                 <div class="Imagem">
-                    <img src="{{i.imagem}}">
+                    {% if i.Ator == 1 %}
+                        <img src="{{i.imagem.imagem}}">    
+                    {% else %}
+                        <img src="{{i.imagem}}">
+                    {% endif %}
+                    
                 </div>
 
                 <div class="Infor">
@@ -118,17 +104,8 @@
             <a onclick="window.history.back()">
                 <button>Voltar</button>
             </a>
-
-            {% if status != None %}
-                <a style="display: none;"></a>
-            {% else %}
-                <a href="{% url 'salvaAposta' %}">
-                    <button type="submit">Salvar</button>
-                </a>
-            {% endif %}
-
         </div>
 
     </div>
-    
+
 {% endblock %}

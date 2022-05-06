@@ -5,10 +5,88 @@
 
 {% block 'head' %}
     <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
 {% endblock %}
 
 {% block 'conteudo' %}
 
-    <h1>Perfil de {{nome}}</h1>
+    <div class="titulo" style="margin-top: 100px;">
+        <h2>Perfil de {{usuario.nome}}</h2>
+    </div>
+
+
+
+    <div class="Placar centro">
+
+        {% if total > 0 %}
+            <div class="campo"></div>
+            
+            <!-- 
+            <div class="campo qntApostas">
+                <div class="tituloCampo">
+                    <h2>Quantas apostas feitas:</h2>
+                </div>
+
+                <div class="total">
+                    <h1>X</h1>
+                </div>
+            </div>
+            -->
+            
+            <div class="campo qntAcetos">
+                <div class="tituloCampo">
+                    <h2>Quantidade de acertos:</h2>
+                </div>
+
+                <div class="total">
+                    <h1>{{acerto.catAcertadas}}</h1>
+                    <p>/23</p>
+                </div>
+                
+            </div>
+
+            <div class="campo valorTotal">
+                <div class="tituloCampo">
+                    <h2>Valor total apostado:</h2>
+                </div>
+
+                <div class="total">
+                    <h1>{{acerto.valorTotalApostado}}</h1>
+                    <p>R$</p>
+                </div>
+            </div>
+
+            <!--            
+            <div class="campo valorGanho">
+                <div class="tituloCampo">
+                    <h2>Valor ganho:</h2>
+                </div>
+                <div class="total">
+                    <h1>{{acerto.valorGanho}}</h1>
+                    <p>R$</p>
+                </div>
+            </div>
+
+            <div class="campo valorPerdido">
+                <div class="tituloCampo">
+                    <h2>Valor perdido:</h2>
+                </div>
+
+                <div class="total">
+                    <h1>{{acerto.valorPerdido}}</h1>
+                    <p>R$</p>
+                </div>
+            </div> -->
+        
+        {% else %}
+
+            <div class="campo">
+                <h2>Os resultados ainda não sairam!</h2>
+            </div>
+
+        {% endif %}
+
+    </div>
+
 
 {% endblock %}

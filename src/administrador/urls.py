@@ -12,5 +12,7 @@ urlpatterns = [
     path('sairA/', views.sairA, name='sairA'),
     path('notificaA/', views.notificaA, name='notificaA'),
     path('editaResults/', views.editaResults, name='editaResults'),
-    path('valida_edicao_results/', views.valida_edicao_results, name='valida_edicao_results')
+    path('valida_edicao_results/', views.valida_edicao_results, name='valida_edicao_results'),
+    path('valida_notificacao/', views.valida_notificacao, name='valida_notificacao'),
+    path('anunciarVencedores/', views.anunciarVencedores, name='anunciarVencedores')
 ]

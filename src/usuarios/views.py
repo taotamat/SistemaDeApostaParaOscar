@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Usuario, Notificacao
+
+from administrador.views import busca_notifica, pegaAcerto
+from .models import Usuario, Notificacao, Acerto
+from apostas.models import Aposta, Resultado
 from django.shortcuts import redirect
 from hashlib import sha256
-from administrador.views import notificar, notificarTodos, busca_notifica
-
+#from administrador.views import notificar, notificarTodos, busca_notifica
+from apostas.views import pegaPremio
 
 def perfil(request):
     status = request.GET.get('status')
@@ -12,10 +15,19 @@ def perfil(request):
     id_usuario = request.session.get('usuario')
     usuario = Usuario.objects.filter(id=id_usuario)[0]
 
+    a = pegaAcerto(id_usuario)
+    a.valorTotalApostado = round(a.valorTotalApostado, 2)
+    a.save()
+
+    res = list(Resultado.objects.all())
+
     return render(request, 'perfil.html', {
         'status': status,
         'nome': usuario.nome,
-        'id_user': usuario.id
+        'id_user': usuario.id,
+        'usuario': usuario,
+        'acerto': a,
+        'total': len(res)
         }
     )
 
@@ -79,7 +91,7 @@ def valida_cadastro(request):
         retorno = redirect('/auth/cadastro/?status=3')
     else:
         try:
-            senha = sha256(senha.encode()).hexdigest()
+            #senha = sha256(senha.encode()).hexdigest()
             usuario = Usuario(nome=nome, senha=senha, email=email)
             usuario.save()
             erro = 0
@@ -92,6 +104,8 @@ def valida_cadastro(request):
         aux = list(Usuario.objects.all().filter(email=email))
         #notificar(id_user=aux[0].id, mensagem=' ', titulo='Conta cadastrada com sucesso!')
         busca_notifica(aux[0], ' ', f'Conta de {aux[0].nome} criada com sucesso!')
+        novo = Acerto(id_usuario=aux[0].id, nome_usuario=aux[0].nome)
+        novo.save()
 
     return retorno
 
@@ -99,7 +113,7 @@ def valida_login(request):
 
     email = request.POST.get('email')
     senha = request.POST.get('senha')
-    senha = sha256(senha.encode()).hexdigest()
+    #senha = sha256(senha.encode()).hexdigest()
 
     usuario = Usuario.objects.filter(email=email).filter(senha=senha)
 
@@ -176,7 +190,8 @@ def pegaUser(id_user):
         return todos[0]
 
 def pegaNotificacoes(id_user):
-    todos = list(Notificacao.objects.all().filter(id_usuario=id_user))
+    id_usuario = int(id_user)
+    todos = list(Notificacao.objects.all().filter(id_usuario=id_usuario))
     if len(todos) == 0:
         return None
     else:
@@ -197,5 +212,21 @@ def notificacoes(request):
         'notificacoes': n
         }
     )
+
+""" def buscaPlacarAux(id_usuario):
+
+    apostas = list(Aposta.objects.all().filter(id_usuario=id_usuario))
+
+    retorno = {
+        'qnt_cats_apostadas': len(apostas)
+    }
+
+    for i in apostas:
+        res = list(Resultado.objects.all().filter(categoria=i.categoria).filter(id_usuario=id_usuario))[0]
+
+        if i.categoria != 'Best Picture ': """
+
+
+
 
 # ---------#---------#------- #-

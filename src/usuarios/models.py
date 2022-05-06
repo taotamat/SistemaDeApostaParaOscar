@@ -24,3 +24,15 @@ class Notificacao(models.Model):
 
     def __str__(self) -> str:
         return self.titulo
+
+class Acerto(models.Model):
+    catAcertadas = models.IntegerField(default=0)
+    id_usuario = models.IntegerField(default=-1)
+    nome_usuario = models.CharField(max_length=100)
+    valorGanho = models.FloatField(default=0)
+    valorPerdido = models.FloatField(default=0)
+    valorTotalApostado = models.FloatField(default=0)
+
+    def __str__(self) -> str:
+        return self.nome_usuario
+
